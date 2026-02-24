@@ -3,19 +3,14 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 pt-24 pb-16 text-center overflow-hidden">
-      {/* Subtle radial glow */}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[700px] w-[700px] rounded-full bg-[#6100FF]/[0.06]" />
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full bg-[#0075FF]/[0.04]" />
-      </div>
-
-      {/* Grid lines */}
-      <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full border border-border/30" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full border border-border/20" />
-        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-full border border-border/10" />
-      </div>
+    <section
+      className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 pt-24 pb-16 text-center overflow-hidden"
+      style={{
+        backgroundImage: "url('/bg-eclipse.svg')",
+        backgroundPosition: "center top",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
 
       <div className="relative z-10 mx-auto max-w-3xl">
         <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#313549] px-4 py-1.5" style={{ backgroundColor: "#23273D" }}>
