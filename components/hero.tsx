@@ -4,10 +4,10 @@ import { ArrowRight } from "lucide-react";
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 pt-24 pb-16 text-center overflow-hidden"
+      className="relative flex min-h-[55vh] flex-col items-center justify-start px-6 pt-48 pb-16 text-center overflow-hidden"
       style={{
         backgroundImage: "url('/bg-eclipse.svg')",
-        backgroundPosition: "center top",
+        backgroundPosition: "center -6rem",
         backgroundRepeat: "no-repeat",
       }}
     >

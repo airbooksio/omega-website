@@ -8,9 +8,6 @@ export function CtaSection() {
       className="relative border-t border-[#313549] px-6 py-24 lg:py-32 overflow-hidden"
       style={{ backgroundColor: "#12172B" }}
     >
-      {/* Subtle purple glow */}
-      <div className="pointer-events-none absolute bottom-0 left-1/2 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-[#6100FF]/[0.06]" />
-
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <p className="mb-3 text-xs font-medium tracking-widest text-[#8B3DFF] uppercase font-mono">
           Get Started

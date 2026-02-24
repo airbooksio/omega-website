@@ -1,15 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import Image from "next/image";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.scrollY;
+      setIsScrolled(scrollTop > 10);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-[#0D1123]/90 backdrop-blur-md border-b border-[#313549]">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
+      isScrolled 
+        ? 'bg-[#0D1123]/90 backdrop-blur-md border-b border-[#313549]' 
+        : 'bg-transparent border-b border-transparent'
+    }`}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
         <a href="#" className="flex items-center">
           <Image
@@ -58,7 +73,11 @@ export function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="border-t border-[#313549] bg-[#0D1123] px-6 pb-6 md:hidden">
+        <div className={`px-6 pb-6 md:hidden transition-colors duration-300 ${
+          isScrolled 
+            ? 'border-t border-[#313549] bg-[#0D1123]' 
+            : 'border-t border-[#313549]/20 bg-[#0D1123]/50 backdrop-blur-md'
+        }`}>
           <div className="flex flex-col gap-4 pt-4">
             <a
               href="#pillars"
