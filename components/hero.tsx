@@ -1,0 +1,51 @@
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+
+export function Hero() {
+  return (
+    <section className="relative flex min-h-[90vh] flex-col items-center justify-center px-6 pt-24 pb-16 text-center">
+      {/* Subtle background pattern */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full border border-border/40 opacity-30" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[400px] rounded-full border border-border/30 opacity-20" />
+        <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[200px] w-[200px] rounded-full border border-border/20 opacity-10" />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-3xl">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5">
+          <span className="relative flex h-2 w-2">
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-foreground/60 opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-foreground" />
+          </span>
+          <span className="text-xs font-medium tracking-wide text-muted-foreground font-mono">
+            Now accepting architecture partners
+          </span>
+        </div>
+
+        <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
+          Open Markets Exchange Governance and Access
+        </h1>
+
+        <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
+          OMEGA is neutral market infrastructure that standardizes cross-firm
+          exchange APIs, centralizes governance through a participant consortium,
+          and gives each participant direct control over access to its own data.
+        </p>
+
+        <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+          <Button size="lg" className="rounded-full px-7 gap-2">
+            Book an Architecture Session
+            <ArrowRight className="size-4" />
+          </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            className="rounded-full px-7"
+          >
+            Review the Technical Overview
+          </Button>
+        </div>
+      </div>
+    </section>
+  );
+}
