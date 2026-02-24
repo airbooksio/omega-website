@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -10,10 +11,14 @@ export function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <a href="#" className="flex items-center gap-2">
-          <span className="font-mono text-sm font-medium tracking-widest text-foreground uppercase">
-            OMEGA
-          </span>
+        <a href="#" className="flex items-center">
+          <Image
+            src="/omega-logo.svg"
+            alt="Omega"
+            width={120}
+            height={34}
+            priority
+          />
         </a>
 
         {/* Desktop nav */}

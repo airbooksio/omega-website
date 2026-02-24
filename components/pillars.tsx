@@ -41,7 +41,7 @@ export function Pillars() {
     <section id="pillars" className="px-6 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 max-w-xl">
-          <p className="mb-3 text-xs font-medium tracking-widest text-muted-foreground uppercase font-mono">
+          <p className="mb-3 text-xs font-medium tracking-widest text-[#8B3DFF] uppercase font-mono">
             Three Pillars
           </p>
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
@@ -58,10 +58,10 @@ export function Pillars() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="group relative flex flex-col rounded-lg border border-border bg-card p-8 transition-colors hover:border-foreground/20"
+              className="group relative flex flex-col rounded-lg border border-border bg-card p-8 transition-colors hover:border-[#6100FF]/40"
             >
-              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg bg-secondary">
-                <pillar.icon className="size-5 text-foreground" />
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg bg-[#6100FF]/10">
+                <pillar.icon className="size-5 text-[#8B3DFF]" />
               </div>
 
               <h3 className="mb-3 text-xl font-semibold text-foreground">
@@ -79,7 +79,7 @@ export function Pillars() {
                       key={i}
                       className="flex items-center gap-2.5 text-sm text-muted-foreground"
                     >
-                      <span className="flex h-1.5 w-1.5 shrink-0 rounded-full bg-foreground/40" />
+                      <span className="flex h-1.5 w-1.5 shrink-0 rounded-full bg-[#6100FF]" />
                       {detail}
                     </li>
                   ))}

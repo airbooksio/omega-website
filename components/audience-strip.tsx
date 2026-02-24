@@ -18,9 +18,9 @@ export function AudienceStrip() {
           {audiences.map((a) => (
             <div
               key={a.label}
-              className="flex items-center gap-3 text-muted-foreground"
+              className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
             >
-              <a.icon className="size-5" />
+              <a.icon className="size-5 text-[#0075FF]" />
               <span className="text-sm font-medium">{a.label}</span>
             </div>
           ))}
