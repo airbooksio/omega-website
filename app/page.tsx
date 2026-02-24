@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer";
 
 export default function Page() {
   return (
-    <main>
+    <main className="min-h-screen bg-background text-foreground">
       <Navbar />
       <Hero />
       <AudienceStrip />

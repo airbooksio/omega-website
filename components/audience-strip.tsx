@@ -11,14 +11,14 @@ export function AudienceStrip() {
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <p className="mb-8 text-center text-xs font-medium tracking-widest text-muted-foreground uppercase font-mono">
+        <p className="mb-8 text-center text-xs font-medium tracking-widest text-[#A5A5A5] uppercase font-mono">
           Built for
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">
           {audiences.map((a) => (
             <div
               key={a.label}
-              className="flex items-center gap-3 text-muted-foreground transition-colors hover:text-foreground"
+              className="flex items-center gap-3 text-[#A5A5A5] transition-colors hover:text-[#F9F9F9]"
             >
               <a.icon className="size-5 text-[#0075FF]" />
               <span className="text-sm font-medium">{a.label}</span>
