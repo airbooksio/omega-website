@@ -5,7 +5,7 @@ export function CtaSection() {
   return (
     <section
       id="cta"
-      className="relative border-t border-gray-800 bg-gray-900 px-6 py-24 lg:py-32 overflow-hidden"
+      className="relative border-b border-gray-850 bg-gray-900 px-6 py-24 lg:py-32 overflow-hidden"
       style={{
         backgroundImage: "url('/bg-eclipse-circle.svg')",
         backgroundPosition: "center center",
@@ -20,7 +20,7 @@ export function CtaSection() {
         <h2 className="text-balance text-3xl font-semibold tracking-tight text-gray-50 sm:text-4xl">
           A Governed Exchange Layer for Capital Markets Interoperability
         </h2>
-        <p className="mx-auto mt-4 max-w-lg text-pretty leading-relaxed text-gray-300">
+        <p className="mx-auto mt-4 max-w-lg text-pretty leading-relaxed text-gray-200">
           OMEGA aligns institutions on one exchange contract, one governance
           process, and one access model, without requiring each firm to negotiate
           policy and schema rules bilaterally.

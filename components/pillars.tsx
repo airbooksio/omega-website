@@ -58,7 +58,7 @@ export function Pillars() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="group relative flex flex-col rounded-lg border border-gray-800 bg-gray-900 p-8 transition-colors hover:border-purple-700/40"
+              className="group relative flex flex-col rounded-lg border border-gray-900 bg-gray-900 p-8 transition-colors transition-shadow hover:border-purple-850/40 hover:shadow-2xl hover:shadow-purple-800/20"
             >
               <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg bg-purple-700/10">
                 <pillar.icon className="size-5 text-purple-500" />
@@ -68,7 +68,7 @@ export function Pillars() {
                 {pillar.title}
               </h3>
 
-              <p className="mb-6 text-sm leading-relaxed text-gray-300">
+              <p className="mb-6 text-sm leading-relaxed text-gray-200">
                 {pillar.description}
               </p>
 
@@ -77,7 +77,7 @@ export function Pillars() {
                   {pillar.details.map((detail, i) => (
                     <li
                       key={i}
-                      className="flex items-center gap-2.5 text-sm text-gray-300"
+                      className="flex items-center gap-2.5 text-sm text-gray-200"
                     >
                       <span className="flex h-1.5 w-1.5 shrink-0 rounded-full bg-purple-700" />
                       {detail}

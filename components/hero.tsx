@@ -18,7 +18,7 @@ export function Hero() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-700" />
           </span>
-          <span className="text-xs font-medium tracking-wide text-gray-300 font-mono">
+          <span className="text-xs font-medium tracking-wide text-purple-200 font-mono">
             Now accepting architecture partners
           </span>
         </div>
@@ -27,7 +27,7 @@ export function Hero() {
           Open Markets Exchange Governance and Access
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-gray-300 sm:text-lg">
+        <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-gray-100 sm:text-lg">
           OMEGA is neutral market infrastructure that standardizes cross-firm
           exchange APIs, centralizes governance through a participant consortium,
           and gives each participant direct control over access to its own data.
