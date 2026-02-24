@@ -6,6 +6,12 @@ export function CtaSection() {
     <section
       id="cta"
       className="relative border-t border-gray-800 bg-gray-900 px-6 py-24 lg:py-32 overflow-hidden"
+      style={{
+        backgroundImage: "url('/bg-eclipse-circle.svg')",
+        backgroundPosition: "center center",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "80rem 80rem",
+      }}
     >
       <div className="relative z-10 mx-auto max-w-2xl text-center">
         <p className="mb-3 text-xs font-medium tracking-widest text-purple-500 uppercase font-mono">
