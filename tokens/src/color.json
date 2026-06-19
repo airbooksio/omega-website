@@ -86,75 +86,75 @@
       },
       "100": {
         "$type": "color",
-        "$value": "#ebebeb"
+        "$value": "#ebebed"
       },
       "150": {
         "$type": "color",
-        "$value": "#dadada"
+        "$value": "#d9dade"
       },
       "200": {
         "$type": "color",
-        "$value": "#c9c9ca"
+        "$value": "#c8c9d0"
       },
       "250": {
         "$type": "color",
-        "$value": "#bababb"
+        "$value": "#b8bac2"
       },
       "300": {
         "$type": "color",
-        "$value": "#acacac"
+        "$value": "#a9abb7"
       },
       "350": {
         "$type": "color",
-        "$value": "#9e9e9e"
+        "$value": "#9a9dab"
       },
       "400": {
         "$type": "color",
-        "$value": "#919191"
+        "$value": "#8d90a1"
       },
       "450": {
         "$type": "color",
-        "$value": "#848485"
+        "$value": "#7f8497"
       },
       "500": {
         "$type": "color",
-        "$value": "#787879"
+        "$value": "#73788d"
       },
       "550": {
         "$type": "color",
-        "$value": "#6d6d6e"
+        "$value": "#676c84"
       },
       "600": {
         "$type": "color",
-        "$value": "#626263"
+        "$value": "#5c617b"
       },
       "650": {
         "$type": "color",
-        "$value": "#585858"
+        "$value": "#525770"
       },
       "700": {
         "$type": "color",
-        "$value": "#4d4d4e"
+        "$value": "#484c63"
       },
       "750": {
         "$type": "color",
-        "$value": "#434343"
+        "$value": "#3e4256"
       },
       "800": {
         "$type": "color",
-        "$value": "#383839"
+        "$value": "#343848"
       },
       "850": {
         "$type": "color",
-        "$value": "#2d2d2e"
+        "$value": "#2a2d3a"
       },
       "900": {
         "$type": "color",
-        "$value": "#212121"
+        "$value": "#1e202a"
       },
       "950": {
         "$type": "color",
-        "$value": "#101011"
+        "$value": "#0f1016"
       }
     },
     "blue": {
@@ -479,13 +479,13 @@
     },
     "surface-raised": {
       "$type": "color",
-      "$value": "#17171a",
-      "$description": "Elevated surfaces: cards, sheets, hero. Subtle lift from surface (#17171a)."
+      "$value": "#161820",
+      "$description": "Elevated surfaces: cards, sheets, hero. Subtle cool lift from surface (#161820)."
     },
     "surface-overlay": {
       "$type": "color",
-      "$value": "#1f1f22",
-      "$description": "Modal / dialog / popover surface (#1f1f22)."
+      "$value": "{palette.neutral.900}",
+      "$description": "Modal / dialog / popover surface (neutral-900)."
     },
     "on-surface": {
       "$type": "color",
@@ -499,8 +499,8 @@
     },
     "border": {
       "$type": "color",
-      "$value": "#2a2a2e",
-      "$description": "Default border / section dividers \u2014 subtle hairline on dark surfaces (#2a2a2e)."
+      "$value": "{palette.neutral.900}",
+      "$description": "Default border / section dividers \u2014 subtle cool hairline against surface (neutral-900)."
     },
     "border-focus": {
       "$type": "color",

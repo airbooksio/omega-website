@@ -35,8 +35,8 @@ export function SiteNav() {
           <Image
             src="/omega-logo-new.svg"
             alt="Airbooks"
-            width={98}
-            height={28}
+            width={119}
+            height={34}
             priority
           />
         </Link>
@@ -47,7 +47,7 @@ export function SiteNav() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-label text-muted-foreground transition-colors hover:text-foreground"
+              className="text-label font-semibold text-foreground transition-colors hover:text-foreground/70"
             >
               {link.label}
             </Link>
@@ -77,7 +77,7 @@ export function SiteNav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className="text-label text-muted-foreground hover:text-foreground"
+                className="text-label font-semibold text-foreground hover:text-foreground/70"
               >
                 {link.label}
               </Link>

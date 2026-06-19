@@ -6,9 +6,9 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-6 sm:flex-row sm:justify-between">
         <div className="flex items-center gap-6">
           <Image
-            src="/omega-logo.svg"
+            src="/omega-logo-new.svg"
             alt="Omega"
-            width={100}
+            width={98}
             height={28}
           />
           <span className="hidden h-4 w-px bg-border sm:block" />

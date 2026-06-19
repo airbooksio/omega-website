@@ -3,17 +3,17 @@ import { ArrowRight } from "lucide-react";
 
 export function CtaSection() {
   return (
-    <section
-      id="cta"
-      className="relative border-b border-border bg-card px-6 py-24 lg:py-32 overflow-hidden"
-      style={{
-        backgroundImage: "url('/bg-eclipse-circle.svg')",
-        backgroundPosition: "center center",
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "80rem 80rem",
-      }}
-    >
-      <div className="relative z-10 mx-auto max-w-2xl text-center">
+    <section id="cta" className="px-6 pb-24 lg:pb-32">
+      <div
+        className="relative mx-auto max-w-6xl overflow-hidden rounded-2xl border border-border bg-card px-6 py-24 text-center lg:py-32"
+        style={{
+          backgroundImage: "url('/bg-eclipse-circle.svg')",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "80rem 80rem",
+        }}
+      >
+        <div className="relative z-10 mx-auto max-w-2xl text-center">
         <p className="mb-3 text-xs font-medium tracking-widest text-primary uppercase font-mono">
           Get Started
         </p>
@@ -41,6 +41,7 @@ export function CtaSection() {
             Review the Technical Overview
           </Button>
         </div>
+      </div>
       </div>
     </section>
   );
