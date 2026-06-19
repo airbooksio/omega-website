@@ -21,15 +21,15 @@ const proofs = [
 
 export function ProofStrip() {
   return (
-    <section id="proof" className="bg-gray-900">
+    <section id="proof" className="bg-card">
       <div className="mx-auto grid max-w-6xl grid-cols-1 gap-0 sm:grid-cols-2 lg:grid-cols-4">
         {proofs.map((proof, i) => (
           <div
             key={i}
-            className="flex items-start gap-4 border-b border-gray-950 px-6 py-8 sm:border-b-0 sm:border-r sm:last:border-r-0 lg:border-b-0 last:border-b-0"
+            className="flex items-start gap-4 border-b border-border px-6 py-8 sm:border-b-0 sm:border-r sm:last:border-r-0 lg:border-b-0 last:border-b-0"
           >
-            <proof.icon className="mt-0.5 size-5 shrink-0 text-purple-500" />
-            <p className="text-sm leading-relaxed text-purple-200">
+            <proof.icon className="mt-0.5 size-5 shrink-0 text-primary" />
+            <p className="text-sm leading-relaxed text-on-primary-container">
               {proof.text}
             </p>
           </div>

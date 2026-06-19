@@ -41,13 +41,13 @@ export function Pillars() {
     <section id="pillars" className="px-6 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 max-w-xl">
-          <p className="mb-3 text-xs font-medium tracking-widest text-purple-500 uppercase font-mono">
+          <p className="mb-3 text-xs font-medium tracking-widest text-primary uppercase font-mono">
             Three Pillars
           </p>
-          <h2 className="text-balance text-3xl font-semibold tracking-tight text-gray-50 sm:text-4xl">
+          <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
             Standardize the Market Interface, Not Just the Data Store
           </h2>
-          <p className="mt-4 text-pretty leading-relaxed text-gray-300">
+          <p className="mt-4 text-pretty leading-relaxed text-muted-foreground">
             OMEGA is a three-pillar platform for Exchange, Governance, and
             Access, designed to reduce fragmentation while preserving
             institutional control and compliance.
@@ -58,28 +58,28 @@ export function Pillars() {
           {pillars.map((pillar) => (
             <div
               key={pillar.title}
-              className="group relative flex flex-col rounded-lg border border-gray-900 bg-gray-900 p-8 transition-colors transition-shadow hover:border-purple-850/40 hover:shadow-2xl hover:shadow-purple-800/20"
+              className="group relative flex flex-col rounded-lg border border-border bg-card p-8 transition-colors transition-shadow hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/20"
             >
-              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg bg-purple-700/10">
-                <pillar.icon className="size-5 text-purple-500" />
+              <div className="mb-6 flex h-11 w-11 items-center justify-center rounded-lg bg-primary/10">
+                <pillar.icon className="size-5 text-primary" />
               </div>
 
-              <h3 className="mb-3 text-xl font-semibold text-gray-50">
+              <h3 className="mb-3 text-xl font-semibold text-foreground">
                 {pillar.title}
               </h3>
 
-              <p className="mb-6 text-sm leading-relaxed text-gray-200">
+              <p className="mb-6 text-sm leading-relaxed text-muted-foreground">
                 {pillar.description}
               </p>
 
-              <div className="mt-auto border-t border-gray-800 pt-6">
+              <div className="mt-auto border-t border-border pt-6">
                 <ul className="flex flex-col gap-3">
                   {pillar.details.map((detail, i) => (
                     <li
                       key={i}
-                      className="flex items-center gap-2.5 text-sm text-gray-200"
+                      className="flex items-center gap-2.5 text-sm text-muted-foreground"
                     >
-                      <span className="flex h-1.5 w-1.5 shrink-0 rounded-full bg-purple-700" />
+                      <span className="flex h-1.5 w-1.5 shrink-0 rounded-full bg-primary" />
                       {detail}
                     </li>
                   ))}

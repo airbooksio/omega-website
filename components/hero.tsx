@@ -13,21 +13,21 @@ export function Hero() {
     >
 
       <div className="relative z-10 mx-auto max-w-3xl">
-        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-800 bg-gray-850 px-4 py-1.5">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-border bg-muted px-4 py-1.5">
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-purple-700" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-primary" />
           </span>
-          <span className="text-xs font-medium tracking-wide text-purple-200 font-mono">
+          <span className="text-xs font-medium tracking-wide text-on-primary-container font-mono">
             Now accepting architecture partners
           </span>
         </div>
 
-        <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-gray-50 sm:text-5xl lg:text-6xl">
+        <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Open Markets Exchange Governance and Access
         </h1>
 
-        <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-gray-100 sm:text-lg">
+        <p className="mx-auto mt-6 max-w-2xl text-pretty text-base leading-relaxed text-foreground sm:text-lg">
           OMEGA is neutral market infrastructure that standardizes cross-firm
           exchange APIs, centralizes governance through a participant consortium,
           and gives each participant direct control over access to its own data.
@@ -41,7 +41,7 @@ export function Hero() {
           <Button
             variant="outline"
             size="lg"
-            className="rounded-full px-7 border-gray-800 bg-transparent text-gray-100 hover:bg-gray-850 hover:text-gray-50"
+            className="rounded-full px-7 border-border bg-transparent text-foreground hover:bg-muted hover:text-foreground"
           >
             Review the Technical Overview
           </Button>

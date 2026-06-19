@@ -479,13 +479,13 @@
     },
     "surface-raised": {
       "$type": "color",
-      "$value": "{palette.neutral.900}",
-      "$description": "Elevated surfaces: cards, sheets (#212121)"
+      "$value": "#17171a",
+      "$description": "Elevated surfaces: cards, sheets, hero. Subtle lift from surface (#17171a)."
     },
     "surface-overlay": {
       "$type": "color",
-      "$value": "{palette.neutral.850}",
-      "$description": "Modal / dialog / popover surface (#2d2d2e)"
+      "$value": "#1f1f22",
+      "$description": "Modal / dialog / popover surface (#1f1f22)."
     },
     "on-surface": {
       "$type": "color",
@@ -499,8 +499,8 @@
     },
     "border": {
       "$type": "color",
-      "$value": "{palette.neutral.800}",
-      "$description": "Default decorative border (#383839)"
+      "$value": "#2a2a2e",
+      "$description": "Default border / section dividers \u2014 subtle hairline on dark surfaces (#2a2a2e)."
     },
     "border-focus": {
       "$type": "color",

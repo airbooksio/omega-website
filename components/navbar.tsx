@@ -22,7 +22,7 @@ export function Navbar() {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out ${
       isScrolled 
-        ? 'bg-gray-950/90 backdrop-blur-md border-b border-gray-800' 
+        ? 'bg-background/90 backdrop-blur-md border-b border-border' 
         : 'bg-transparent border-b border-transparent'
     }`}>
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -40,19 +40,19 @@ export function Navbar() {
         <div className="hidden items-center gap-8 md:flex">
           <a
             href="#pillars"
-            className="text-sm text-gray-300 transition-colors hover:text-gray-50"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Platform
           </a>
           <a
             href="#proof"
-            className="text-sm text-gray-300 transition-colors hover:text-gray-50"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Principles
           </a>
           <a
             href="#cta"
-            className="text-sm text-gray-300 transition-colors hover:text-gray-50"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
           >
             Contact
           </a>
@@ -64,7 +64,7 @@ export function Navbar() {
         {/* Mobile toggle */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-gray-50"
+          className="md:hidden text-foreground"
           aria-label={mobileOpen ? "Close menu" : "Open menu"}
         >
           {mobileOpen ? <X className="size-5" /> : <Menu className="size-5" />}
@@ -75,28 +75,28 @@ export function Navbar() {
       {mobileOpen && (
         <div className={`px-6 pb-6 md:hidden transition-colors duration-300 ${
           isScrolled 
-            ? 'border-t border-gray-800 bg-gray-950' 
-            : 'border-t border-gray-800/20 bg-gray-950/50 backdrop-blur-md'
+            ? 'border-t border-border bg-background' 
+            : 'border-t border-border/20 bg-background/50 backdrop-blur-md'
         }`}>
           <div className="flex flex-col gap-4 pt-4">
             <a
               href="#pillars"
               onClick={() => setMobileOpen(false)}
-              className="text-sm text-gray-300 hover:text-gray-50"
+              className="text-sm text-muted-foreground hover:text-foreground"
             >
               Platform
             </a>
             <a
               href="#proof"
               onClick={() => setMobileOpen(false)}
-              className="text-sm text-gray-300 hover:text-gray-50"
+              className="text-sm text-muted-foreground hover:text-foreground"
             >
               Principles
             </a>
             <a
               href="#cta"
               onClick={() => setMobileOpen(false)}
-              className="text-sm text-gray-300 hover:text-gray-50"
+              className="text-sm text-muted-foreground hover:text-foreground"
             >
               Contact
             </a>

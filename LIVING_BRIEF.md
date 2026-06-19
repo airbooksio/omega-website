@@ -4,7 +4,10 @@
 
 ## Product identity
 
-A dark-theme marketing one-pager for **Omega**, an institutional financial-infrastructure platform serving Banks, Broker/Dealers, Investment Firms, and Market Infrastructure, organized around three pillars: Exchange, Governance, Access.
+A dark-theme marketing site for **Airbooks**, a capital-markets (fixed-income) data company offering modern applications + an open protocol (**OMEGA** — Open Markets Exchange, Governance & Access) for cleaner, more controllable access to capital-markets infrastructure.
+- **`/`** — Airbooks homepage (migrated from `TEMP/Airbooks Framer Website/high-fidelity/index.html`).
+- **`/core`** — the original OMEGA marketing page (moved here, unchanged).
+- The final site will be a **synthesis** of both designs (color-keying session pending).
 
 ## Key decisions (by area)
 
@@ -37,15 +40,18 @@ A dark-theme marketing one-pager for **Omega**, an institutional financial-infra
 
 - **Implemented & shipped:** 7 custom sections — [navbar](components/navbar.tsx), [hero](components/hero.tsx), [audience-strip](components/audience-strip.tsx), [proof-strip](components/proof-strip.tsx), [pillars](components/pillars.tsx), [cta-section](components/cta-section.tsx), [footer](components/footer.tsx) — assembled in [app/page.tsx](app/page.tsx). Of the shadcn library, only [ui/button](components/ui/button.tsx) is actually used (3×).
 - **Token pipeline:** `tokens/src/*.json` → Style Dictionary → `app/tokens.generated.css` → `@theme` in `globals.css`. Build verified (`npm run build` passes; tokens resolve in compiled CSS).
-- **Transitional:** primitive utilities (`gray-*`/`purple-*`/`blue-*`) are re-skinned onto the new ramps so the 73 existing usages keep working; to be migrated to semantic roles in the Step 2 audit fixes, after which those `@theme` mappings can be removed.
+- **Components consume semantic roles only.** The 73 primitive usages were migrated to semantic utilities and the transitional `gray-*`/`purple-*`/`blue-*` re-skin mappings removed from `@theme`. Custom sections now use `text-foreground`, `text-muted-foreground`, `bg-card`, `bg-background`, `bg-primary`, `text-primary`, `text-on-primary-container`, `text-secondary`, `text-on-secondary-container`, `bg-muted`, `border-border`, etc.
 - **Stubbed / dormant:** 67 other `components/ui/*` files installed but imported nowhere. Legacy light theme `styles/globals.css` unused.
 - **Missing:** `DESIGN.md` / documentation layer (partially addressed by this brief); light theme not wired.
 
 ## Open questions
 
-- Is a **light theme** required, or is dark-only the intended final state? (Determines whether `styles/globals.css` should be deleted or wired up, and whether `color.dark.json` is needed.)
-- Should the 67 unused `ui/` components be **kept** (future app surface) or **pruned**?
-- Repo has **both `package-lock.json` and `pnpm-lock.yaml`** — which package manager is canonical? (Should remove one.)
+- **Color synthesis (next session):** the Airbooks homepage was mapped onto our **desaturated-neutral** surfaces, but its source design used **violet-tinted** surfaces (`oklch … 0.028 290`). Reconcile — re-tint our neutral tokens, or keep neutral? Affects both pages.
+- **Brand-accent text:** eyebrows use `text-primary` (#7208ea), low-contrast on dark (~2.5:1) on both pages. The Airbooks source used a brighter accent. Likely need a new "accent / brand-on-dark text" role (Step 3 will flag).
+- **Hero/heading sizing:** mapped to our type scale (`display` 60px, `heading-lg` 36px) — smaller than the Airbooks source (up to 80/56px). Tune the `display`/`heading-lg` tokens if more drama wanted.
+- Is a **light theme** required, or is dark-only the intended final state?
+- Should the 67 unused `ui/` components be **kept** or **pruned**?
+- Repo has **both `package-lock.json` and `pnpm-lock.yaml`** — which is canonical?
 
 ## Decision log
 
@@ -57,3 +63,5 @@ A dark-theme marketing one-pager for **Omega**, an institutional financial-infra
 - 2026-06-19 — Type scale generated — modular Major Third (1.25), 16px base, DM Sans/DM Mono, 11 named roles.
 - 2026-06-19 — Shape tokens generated — moderately-rounded personality (none/sm4/md6/lg8/xl12/full), 3 dark-tuned elevation shadows.
 - 2026-06-19 — Spacing tokens generated — 4px base, balanced+extended mixed-density scale, 3 semantic layout aliases.
+- 2026-06-19 — Token coverage remediation — migrated all 73 primitive color usages to semantic roles across 8 files; removed transitional re-skin mappings; build passes. Step 2 findings resolved.
+- 2026-06-19 — Homepage migration — converted the Airbooks static page to Next.js (`components/home/*`, new `/` page); moved Omega homepage to `/core`; mapped onto our tokens + DM Sans/Mono; preserved gradient-border cards, eclipse parallax, gradient dividers/CTA (`gradient-accent-*` utilities). Assets in `public/airbooks/`. TEMP kept for reference. Both routes build.

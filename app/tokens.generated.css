@@ -116,11 +116,11 @@
   --ds-palette-green-900: #06270f;
   --ds-palette-green-950: #031407;
   --ds-color-surface: #101011;
-  --ds-color-surface-raised: #212121;
-  --ds-color-surface-overlay: #2d2d2e;
+  --ds-color-surface-raised: #17171a;
+  --ds-color-surface-overlay: #1f1f22;
   --ds-color-on-surface: #fafafa;
   --ds-color-on-surface-muted: #9e9e9e;
-  --ds-color-border: #383839;
+  --ds-color-border: #2a2a2e;
   --ds-color-border-focus: #9b7cf7;
   --ds-color-primary: #7208ea;
   --ds-color-on-primary: #fafafa;
