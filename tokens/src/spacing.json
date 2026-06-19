@@ -1,0 +1,24 @@
+{
+  "space": {
+    "$description": "4px base unit. Balanced tier for component-internal spacing, extended with larger stops (80/96/128) for the marketing site's generous section-level rhythm — a deliberate mixed-density choice. Keys follow the px/4 convention (space.4 = 16px).",
+    "1":  { "$type": "dimension", "$value": "4px" },
+    "2":  { "$type": "dimension", "$value": "8px" },
+    "3":  { "$type": "dimension", "$value": "12px" },
+    "4":  { "$type": "dimension", "$value": "16px" },
+    "5":  { "$type": "dimension", "$value": "20px" },
+    "6":  { "$type": "dimension", "$value": "24px" },
+    "8":  { "$type": "dimension", "$value": "32px" },
+    "10": { "$type": "dimension", "$value": "40px" },
+    "12": { "$type": "dimension", "$value": "48px" },
+    "16": { "$type": "dimension", "$value": "64px" },
+    "20": { "$type": "dimension", "$value": "80px" },
+    "24": { "$type": "dimension", "$value": "96px" },
+    "32": { "$type": "dimension", "$value": "128px" }
+  },
+  "layout": {
+    "$description": "Semantic aliases for the three most consequential layout decisions.",
+    "page-gutter":   { "$type": "dimension", "$value": "{space.6}",  "$description": "Horizontal padding on page-level containers (matches existing px-6)" },
+    "section-gap":   { "$type": "dimension", "$value": "{space.24}", "$description": "Vertical padding between major page sections (matches existing py-24)" },
+    "component-gap": { "$type": "dimension", "$value": "{space.4}",  "$description": "Default gap between adjacent components in a stack or row" }
+  }
+}

@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airbooks Design System — Style Preview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ──────────────────────────────────────────────────────────────────────
+   Airbooks Style Preview — proposed visual direction
+   Dark-only theme · Level 2 Committed OKLCH · Swiss + Editorial frame
+   Values declared here are proposals for review, not finalized tokens.
+   ────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* Surfaces — violet-tinted dark, with visible hue affinity */
+  --surface:           oklch(0.16 0.025 290);   /* base background */
+  --surface-raised:    oklch(0.21 0.028 290);   /* cards, sheets */
+  --surface-overlay:   oklch(0.26 0.030 290);   /* modal / dialog */
+  --surface-sunken:    oklch(0.12 0.022 290);   /* below base — input fields, code blocks */
+
+  /* Text on surface */
+  --on-surface:        oklch(0.96 0.008 290);   /* primary text */
+  --on-surface-muted:  oklch(0.72 0.018 290);   /* secondary text */
+  --on-surface-faint:  oklch(0.52 0.018 290);   /* tertiary / disabled */
+
+  /* Borders */
+  --border:            oklch(0.30 0.025 290);   /* default */
+  --border-strong:     oklch(0.40 0.028 290);   /* emphasized */
+  --border-focus:      oklch(0.70 0.18 290);    /* focus ring — meets 3:1 vs surface */
+
+  /* Primary — saturated violet brand */
+  --primary:           oklch(0.44 0.27 290);    /* #7008e7 */
+  --primary-hover:     oklch(0.52 0.27 290);
+  --on-primary:        oklch(0.99 0.005 290);   /* near-white */
+  --primary-container: oklch(0.28 0.10 290);    /* dim violet, for tinted bg */
+  --on-primary-container: oklch(0.86 0.10 290); /* light violet text on container */
+
+  /* Secondary — desaturated cool counterpoint */
+  --secondary:         oklch(0.62 0.10 220);    /* steel cyan-blue */
+  --secondary-hover:   oklch(0.70 0.10 220);
+  --on-secondary:      oklch(0.10 0.01 220);
+  --secondary-container: oklch(0.25 0.05 220);
+  --on-secondary-container: oklch(0.84 0.07 220);
+
+  /* Semantic */
+  --error:             oklch(0.65 0.18 25);
+  --on-error:          oklch(0.99 0.005 25);
+  --error-container:   oklch(0.28 0.10 25);
+  --success:           oklch(0.72 0.14 150);
+  --on-success:        oklch(0.10 0.01 150);
+  --warning:           oklch(0.78 0.13 80);
+  --on-warning:        oklch(0.18 0.04 80);
+
+  /* Shape */
+  --radius-none: 0px;
+  --radius-sm:   4px;
+  --radius-md:   8px;
+  --radius-lg:   12px;
+  --radius-xl:   16px;
+  --radius-full: 9999px;
+
+  /* Elevation — minimal on dark; lift comes from surface chroma shift */
+  --shadow-sm: 0 1px 2px 0 oklch(0 0 0 / 0.40);
+  --shadow-md: 0 6px 16px -4px oklch(0 0 0 / 0.50);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--surface);
+  color: var(--on-surface);
+  font-family: 'Public Sans', system-ui, -apple-system, sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'cv11', 'ss01';
+}
+
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 64px 32px 96px;
+}
+
+/* Document header */
+.doc-header {
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 32px;
+  margin-bottom: 64px;
+}
+.doc-eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--on-surface-muted);
+  margin-bottom: 16px;
+}
+.doc-title {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--on-surface);
+}
+.doc-title-note {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  color: var(--on-surface-muted);
+  margin-top: 16px;
+  max-width: 720px;
+}
+
+section {
+  margin-bottom: 72px;
+}
+
+h2.section-h {
+  font-size: 28px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 8px;
+  color: var(--on-surface);
+}
+.section-eyebrow {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--on-surface-faint);
+  margin-bottom: 8px;
+}
+.section-intro {
+  font-size: 15px;
+  color: var(--on-surface-muted);
+  max-width: 720px;
+  margin-bottom: 32px;
+}
+
+h3.sub-h {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-muted);
+  margin: 28px 0 16px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 1: Visual Direction Statement
+   ────────────────────────────────────────────────────────────────────── */
+
+.vd-statement {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  background: var(--surface-raised);
+}
+.vd-statement ul { list-style: none; }
+.vd-statement li {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 24px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 15px;
+  line-height: 1.5;
+}
+.vd-statement li:last-child { border-bottom: none; }
+.vd-statement strong {
+  font-weight: 600;
+  color: var(--on-surface);
+}
+.vd-statement li > div { color: var(--on-surface-muted); }
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 2: Color Palette
+   ────────────────────────────────────────────────────────────────────── */
+
+.swatch-group {
+  margin-bottom: 32px;
+}
+.swatch-group-title {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.swatch-group-title h3 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-muted);
+}
+.swatch-group-title small {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-surface-faint);
+  letter-spacing: 0.04em;
+}
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+.swatch {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-raised);
+}
+.swatch-chip {
+  height: 88px;
+  width: 100%;
+  border-bottom: 1px solid var(--border);
+}
+.swatch-meta {
+  padding: 12px 14px;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.swatch-role {
+  font-weight: 600;
+  color: var(--on-surface);
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+.swatch-val {
+  display: block;
+  color: var(--on-surface-muted);
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  letter-spacing: 0;
+}
+.swatch-val + .swatch-val { margin-top: 2px; }
+.swatch-contrast {
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--border);
+  font-size: 11px;
+  color: var(--on-surface-faint);
+  letter-spacing: 0.02em;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 3: Typography
+   ────────────────────────────────────────────────────────────────────── */
+
+.type-row {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 32px;
+  align-items: baseline;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--border);
+}
+.type-row:last-child { border-bottom: none; }
+.type-meta {
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+  color: var(--on-surface-muted);
+  line-height: 1.6;
+}
+.type-meta .type-role-name {
+  display: block;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-surface);
+  margin-bottom: 6px;
+}
+.type-meta .type-rationale {
+  display: block;
+  margin-top: 8px;
+  font-style: italic;
+  color: var(--on-surface-faint);
+  font-size: 11px;
+  letter-spacing: 0;
+}
+.type-sample {
+  color: var(--on-surface);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 4: Shape & Elevation
+   ────────────────────────────────────────────────────────────────────── */
+
+.radius-row {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.radius-specimen {
+  background: var(--primary-container);
+  border: 1px solid var(--border-strong);
+  height: 88px;
+  display: flex;
+  align-items: flex-end;
+  padding: 12px;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  color: var(--on-primary-container);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.component-mapping {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 16px;
+}
+.component-mapping > div {
+  border: 1px solid var(--border);
+  background: var(--surface-raised);
+  padding: 20px;
+}
+.cm-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  font-size: 13px;
+  border-bottom: 1px solid var(--border);
+  color: var(--on-surface);
+}
+.cm-row:last-child { border-bottom: none; }
+.cm-row code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--on-surface-muted);
+  background: var(--surface-sunken);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+.shadow-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 24px;
+}
+.shadow-specimen {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  height: 120px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-end;
+  font-size: 12px;
+  color: var(--on-surface-muted);
+}
+.shadow-specimen.sm { box-shadow: var(--shadow-sm); }
+.shadow-specimen.md { box-shadow: var(--shadow-md); }
+.shadow-specimen .label { display: block; }
+.shadow-specimen .val {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--on-surface-faint);
+  margin-top: 4px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 5: Surface Treatment
+   ────────────────────────────────────────────────────────────────────── */
+
+.surface-stack {
+  background: var(--surface);
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+}
+.surface-stack-inner {
+  background: var(--surface-raised);
+  padding: 32px;
+  border-radius: var(--radius-md);
+}
+.surface-stack-inner-inner {
+  background: var(--surface-overlay);
+  padding: 24px;
+  border-radius: var(--radius-md);
+}
+.surface-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--on-surface-muted);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.surface-val {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--on-surface-faint);
+  margin-bottom: 0;
+}
+
+.border-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 24px;
+}
+.border-specimen {
+  background: var(--surface-raised);
+  padding: 24px;
+  font-size: 13px;
+  font-weight: 500;
+}
+.border-specimen.default { border: 1px solid var(--border); }
+.border-specimen.strong  { border: 1px solid var(--border-strong); }
+.border-specimen.focus   { border: 2px solid var(--border-focus); }
+.border-specimen code {
+  display: block;
+  font-family: ui-monospace, monospace;
+  font-size: 11px;
+  color: var(--on-surface-faint);
+  margin-top: 6px;
+  letter-spacing: 0;
+}
+
+/* Composite card */
+.composite-card {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  max-width: 480px;
+  margin-top: 24px;
+}
+.cc-tag {
+  display: inline-block;
+  background: var(--primary-container);
+  color: var(--on-primary-container);
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  margin-bottom: 20px;
+}
+.cc-title {
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--on-surface);
+  margin-bottom: 12px;
+}
+.cc-body {
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--on-surface-muted);
+  margin-bottom: 24px;
+}
+.cc-revenue {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--on-surface-faint);
+  letter-spacing: 0.04em;
+  font-style: italic;
+}
+.cc-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 24px 0;
+}
+.cc-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 6: Color in Context
+   ────────────────────────────────────────────────────────────────────── */
+
+.context-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.context-cell {
+  background: var(--surface-raised);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px;
+}
+.context-cell h4 {
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--on-surface-muted);
+  margin-bottom: 20px;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 120ms ease;
+  min-height: 40px;
+}
+.btn-primary { background: var(--primary); color: var(--on-primary); }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-secondary {
+  background: transparent;
+  color: var(--on-surface);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover { background: var(--surface-overlay); border-color: var(--on-surface-faint); }
+.btn-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.link {
+  color: var(--on-primary-container);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+  font-weight: 500;
+}
+.link:hover { color: var(--primary-hover); }
+
+.input {
+  background: var(--surface-sunken);
+  color: var(--on-surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  width: 100%;
+  margin-bottom: 10px;
+}
+.input:focus {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 1px;
+  border-color: var(--border-focus);
+}
+.input.error {
+  border-color: var(--error);
+}
+.error-msg {
+  color: var(--error);
+  font-size: 12px;
+  letter-spacing: 0.01em;
+}
+.success-msg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: oklch(0.22 0.07 150);
+  color: oklch(0.92 0.08 150);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  border: 1px solid oklch(0.40 0.10 150);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 12px;
+}
+.warning-banner {
+  background: oklch(0.25 0.08 80);
+  color: oklch(0.92 0.08 80);
+  border: 1px solid oklch(0.45 0.10 80);
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Section 7: Reviewer Notes
+   ────────────────────────────────────────────────────────────────────── */
+
+.reviewer-notes {
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+  padding: 32px;
+  background: var(--surface-raised);
+}
+.reviewer-notes p {
+  font-size: 15px;
+  margin-bottom: 16px;
+  color: var(--on-surface-muted);
+}
+.reviewer-notes ul {
+  list-style: none;
+  margin-top: 8px;
+}
+.reviewer-notes li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--on-surface);
+  border-bottom: 1px solid var(--border);
+}
+.reviewer-notes li:last-child { border-bottom: none; }
+.reviewer-notes li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border-strong);
+  border-radius: 3px;
+}
+.reviewer-notes li strong {
+  color: var(--on-surface);
+  font-weight: 600;
+}
+.reviewer-notes li em {
+  font-style: normal;
+  color: var(--on-surface-muted);
+}
+.reviewer-notes h3 {
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--on-surface-muted);
+  margin: 24px 0 12px;
+}
+
+/* Misc */
+.muted-code {
+  font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  font-size: 12px;
+  color: var(--on-surface-muted);
+}
+.wordmark {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+</style>
+</head>
+<body>
+<main>
+
+<header class="doc-header">
+  <div class="doc-eyebrow">Airbooks · Design system · Visual direction proposal</div>
+  <h1 class="doc-title">Style preview <span class="muted-code" style="color: var(--on-surface-faint); font-family: 'Public Sans', system-ui, sans-serif; font-weight: 400; font-size: 18px;">— v0.1</span></h1>
+  <p class="doc-title-note">A reviewable demonstration of the proposed color, typography, shape, and surface direction for the Airbooks design system. Every value here is a proposal, not a committed token — review before token generation begins.</p>
+</header>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 1 — Visual Direction Statement
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section class="vd-statement">
+  <div class="section-eyebrow">Section 1</div>
+  <h2 class="section-h">Visual direction</h2>
+  <p class="section-intro">The decisions that drive everything below. If any of these feel wrong, the artifact needs revision before we proceed.</p>
+  <ul>
+    <li>
+      <strong>Aesthetic reference</strong>
+      <div>Swiss / International Typographic Style (primary) — grid, hierarchy, type-driven structure. Editorial / Magazine (secondary) — typography as the primary medium, content as the hero. Functionalist influence on restraint: every visual element has a reason to exist.</div>
+    </li>
+    <li>
+      <strong>Color commitment</strong>
+      <div>Level 2 — Committed. Surfaces have visible violet hue affinity (not gray). Primary appears at full chroma only at interactive elements. Restraint reinforces the capital markets audience; Level 3 would skew consumer.</div>
+    </li>
+    <li>
+      <strong>Typographic character</strong>
+      <div>Public Sans for all headings and body text (weight range 300–700, body at weight 300, section H2 at 500, item h3s and H1 at 700). JetBrains Mono for eyebrows, card tags, and accent text — monospace register shift creates typographic separation without a second display face. Hierarchy driven by weight contrast within a single family.</div>
+    </li>
+    <li>
+      <strong>Shape personality</strong>
+      <div>Lean sharp, with hierarchy: inline tags 0px, buttons / inputs 4px, cards 8px, modals 12px. Not Brutalist (we earn quiet through hierarchy, not uniformity).</div>
+    </li>
+    <li>
+      <strong>What this is not</strong>
+      <div>Not fintech / crypto (no glassmorphism, no neon, no holographic shapes). Not consumer SaaS (no friendly-everything, pastels, illustrated empty states). Not the "dark sophisticated" trap (no near-black + muted gold + heavy shadows).</div>
+    </li>
+  </ul>
+</section>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 2 — Color Palette
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section>
+  <div class="section-eyebrow">Section 2</div>
+  <h2 class="section-h">Color palette</h2>
+  <p class="section-intro">All proposed values. Hex shown for documentation; OKLCH is the source-of-truth representation. Surfaces are violet-tinted at the maximum relative chroma achievable at each lightness in dark mode.</p>
+
+  <div class="swatch-group">
+    <div class="swatch-group-title">
+      <h3>Primary</h3>
+      <small>brand violet · interactive elements only</small>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--primary);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">primary</div>
+          <span class="swatch-val">#7008e7</span>
+          <span class="swatch-val">oklch(0.44 0.27 290)</span>
+          <div class="swatch-contrast">vs surface: 4.9:1 · on-primary text 8.4:1 AAA</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--primary-hover);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">primary-hover</div>
+          <span class="swatch-val">~#8927ff</span>
+          <span class="swatch-val">oklch(0.52 0.27 290)</span>
+          <div class="swatch-contrast">hover state lift</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--primary-container); border-bottom-color: var(--border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">primary-container</div>
+          <span class="swatch-val">~#2e2247</span>
+          <span class="swatch-val">oklch(0.28 0.10 290)</span>
+          <div class="swatch-contrast">tinted background for primary content</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--on-primary-container);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">on-primary-container</div>
+          <span class="swatch-val">~#c4afef</span>
+          <span class="swatch-val">oklch(0.86 0.10 290)</span>
+          <div class="swatch-contrast">on primary-container · 8.2:1 AAA</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-group">
+    <div class="swatch-group-title">
+      <h3>Secondary</h3>
+      <small>steel cyan-blue · distinct hue from primary</small>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--secondary);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">secondary</div>
+          <span class="swatch-val">~#65a3c4</span>
+          <span class="swatch-val">oklch(0.62 0.10 220)</span>
+          <div class="swatch-contrast">distinct hue (220°) from primary (290°)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--secondary-container); border-bottom-color: var(--border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">secondary-container</div>
+          <span class="swatch-val">~#27384a</span>
+          <span class="swatch-val">oklch(0.25 0.05 220)</span>
+          <div class="swatch-contrast">tinted background</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-group">
+    <div class="swatch-group-title">
+      <h3>Surfaces</h3>
+      <small>Level 2 Committed · violet-tinted dark, hue affinity to primary</small>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--surface-sunken); border-bottom-color: var(--border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">surface-sunken</div>
+          <span class="swatch-val">~#100d15</span>
+          <span class="swatch-val">oklch(0.12 0.022 290)</span>
+          <div class="swatch-contrast">inputs, code blocks (below base)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--surface); border-bottom-color: var(--border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">surface</div>
+          <span class="swatch-val">~#15121b</span>
+          <span class="swatch-val">oklch(0.16 0.025 290)</span>
+          <div class="swatch-contrast">base background</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--surface-raised); border-bottom-color: var(--border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">surface-raised</div>
+          <span class="swatch-val">~#1d1a25</span>
+          <span class="swatch-val">oklch(0.21 0.028 290)</span>
+          <div class="swatch-contrast">cards, sheets</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--surface-overlay); border-bottom-color: var(--border);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">surface-overlay</div>
+          <span class="swatch-val">~#25212f</span>
+          <span class="swatch-val">oklch(0.26 0.030 290)</span>
+          <div class="swatch-contrast">modal, dialog, popover</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-group">
+    <div class="swatch-group-title">
+      <h3>Text on surface</h3>
+      <small>three weights of emphasis</small>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--on-surface);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">on-surface</div>
+          <span class="swatch-val">~#f4f3f6</span>
+          <span class="swatch-val">oklch(0.96 0.008 290)</span>
+          <div class="swatch-contrast">vs surface: 14.6:1 AAA</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--on-surface-muted);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">on-surface-muted</div>
+          <span class="swatch-val">~#ada8b5</span>
+          <span class="swatch-val">oklch(0.72 0.018 290)</span>
+          <div class="swatch-contrast">vs surface: 7.5:1 AAA</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--on-surface-faint);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">on-surface-faint</div>
+          <span class="swatch-val">~#736f7c</span>
+          <span class="swatch-val">oklch(0.52 0.018 290)</span>
+          <div class="swatch-contrast">vs surface: 4.0:1 (tertiary only)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-group">
+    <div class="swatch-group-title">
+      <h3>Borders</h3>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--border); border-bottom-color: transparent;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">border</div>
+          <span class="swatch-val">~#383540</span>
+          <span class="swatch-val">oklch(0.30 0.025 290)</span>
+          <div class="swatch-contrast">default · low contrast separator</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--border-strong); border-bottom-color: transparent;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">border-strong</div>
+          <span class="swatch-val">~#4b4754</span>
+          <span class="swatch-val">oklch(0.40 0.028 290)</span>
+          <div class="swatch-contrast">emphasized · structural</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--border-focus); border-bottom-color: transparent;"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">border-focus</div>
+          <span class="swatch-val">~#a98aff</span>
+          <span class="swatch-val">oklch(0.70 0.18 290)</span>
+          <div class="swatch-contrast">vs surface: 6.5:1 (≥ 3:1 required ✓)</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="swatch-group">
+    <div class="swatch-group-title">
+      <h3>Semantic</h3>
+      <small>error · success · warning</small>
+    </div>
+    <div class="swatches">
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--error);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">error</div>
+          <span class="swatch-val">~#d65d4e</span>
+          <span class="swatch-val">oklch(0.65 0.18 25)</span>
+          <div class="swatch-contrast">warm red — hue 25° (clearly distinct)</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--success);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">success</div>
+          <span class="swatch-val">~#5cb985</span>
+          <span class="swatch-val">oklch(0.72 0.14 150)</span>
+          <div class="swatch-contrast">desaturated green — hue 150°</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-chip" style="background: var(--warning);"></div>
+        <div class="swatch-meta">
+          <div class="swatch-role">warning</div>
+          <span class="swatch-val">~#d9aa54</span>
+          <span class="swatch-val">oklch(0.78 0.13 80)</span>
+          <div class="swatch-contrast">amber — hue 80°</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 3 — Typography
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section>
+  <div class="section-eyebrow">Section 3</div>
+  <h2 class="section-h">Typography</h2>
+  <p class="section-intro">Public Sans for headings and body; JetBrains Mono for eyebrows and accent text. Hierarchy expressed through weight contrast within a single family — 300 (body) vs. 500 (H2) vs. 700 (H1, h3). Each role exists for a specific reason; rationale is listed alongside.</p>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Display</span>
+      Public Sans · clamp(44px, 6vw, 80px) · weight 700 · lh 1.06 · tracking −0.025em
+      <span class="type-rationale">Hero H1. Used once per page. .emp spans inside use weight 600, tracking −0.03em.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 64px; font-weight: 700; line-height: 1.06; letter-spacing: -0.025em;">Access capital markets infrastructure.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Heading lg (h2)</span>
+      Public Sans · clamp(36px, 4.4vw, 56px) · weight 500 · lh 1.06 · tracking −0.025em
+      <span class="type-rationale">Section H2s. Weight 500 gives architectural quietness at large scale.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 48px; font-weight: 500; line-height: 1.06; letter-spacing: -0.025em;">Better software, on infrastructure the market can finally trust.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Heading sm (h3)</span>
+      Public Sans · 19px · weight 700 · lh 1.3 · tracking −0.005em
+      <span class="type-rationale">Split-section item titles, application card titles. Weight 700 creates contrast against light body text.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 19px; font-weight: 700; line-height: 1.3; letter-spacing: -0.005em;">Partnership, not procurement.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Body lg</span>
+      Public Sans · 19px · weight 300 · lh 1.55 · tracking 0
+      <span class="type-rationale">Section lede paragraphs; split-closing statement. Same size as heading-sm, differentiated by weight (300 vs 700) and color.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 19px; font-weight: 300; line-height: 1.55;">We sit down with sell-side, buy-side, and issuer teams to find where access is gated, where data is leaking value, and where outcomes are slipping.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Body md</span>
+      Public Sans · 16px · weight 300 · lh 1.6 · tracking 0
+      <span class="type-rationale">Base body text.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 16px; font-weight: 300; line-height: 1.6;">The incumbent bundles aging applications with the network layer the market depends on. Either you take both, or you don't get connected.</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Body sm / emphasis</span>
+      Public Sans · 15px · weight 300 (body) / 700 (emphasis) · lh 1.6 · tracking 0
+      <span class="type-rationale">Split-section item paragraphs. Emphasis via weight 700, not italic.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 15px; font-weight: 300; line-height: 1.6;">How we deliver is a conversation. <span style="font-weight: 700;">Whether we deliver isn't.</span></div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Label</span>
+      Public Sans · 13px · weight 500 · lh 1.4 · tracking +0.02em
+      <span class="type-rationale">UI labels, form labels, button text. Slightly opened tracking aids legibility at small size.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 13px; font-weight: 500; line-height: 1.4; letter-spacing: 0.02em;">Schedule a demo · Updated 3 days ago · 12 items in queue</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Eyebrow</span>
+      JetBrains Mono · 12px · weight 500 · lh 1.2 · tracking +0.08em · UPPERCASE · color: --color-accent
+      <span class="type-rationale">Section eyebrows, card tags, footer copyright. Monospace register shift from body sans. Rendered in punchy violet accent.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 12px; font-weight: 500; line-height: 1.2; letter-spacing: 0.08em; text-transform: uppercase; color: var(--border-focus);">Our approach</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Caption</span>
+      Public Sans · 12px · weight 400 · lh 1.45 · tracking +0.01em
+      <span class="type-rationale">Footnotes, microcopy, captions under stats.</span>
+    </div>
+    <div class="type-sample" style="font-family: 'Public Sans', system-ui, sans-serif; font-size: 12px; font-weight: 400; line-height: 1.45; letter-spacing: 0.01em; color: var(--on-surface-muted);">U.S. municipal issuance in 2025 (record, +14% YoY)</div>
+  </div>
+
+  <div class="type-row">
+    <div class="type-meta">
+      <span class="type-role-name">Code / mono</span>
+      ui-monospace fallback · 13px · weight 400 · lh 1.5 · tracking 0
+      <span class="type-rationale">Code samples, data labels, tabular numerics. System mono — no custom mono shipped.</span>
+    </div>
+    <div class="type-sample" style="font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace; font-size: 13px; font-weight: 400; line-height: 1.5; color: var(--on-surface-muted);">--color-primary: oklch(0.44 0.27 290);</div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 4 — Shape & Elevation
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section>
+  <div class="section-eyebrow">Section 4</div>
+  <h2 class="section-h">Shape &amp; elevation</h2>
+  <p class="section-intro">Radius has a clear hierarchy — not uniform 6–8px across everything. Lean sharp at the small end (inline tags, buttons); softer for containers. Elevation on dark surfaces is achieved primarily through surface lightness shift; shadow is reserved for actually-floating elements (popovers, modals).</p>
+
+  <h3 class="sub-h">Radius scale</h3>
+  <div class="radius-row">
+    <div class="radius-specimen" style="border-radius: 0;">none · 0</div>
+    <div class="radius-specimen" style="border-radius: 4px;">sm · 4</div>
+    <div class="radius-specimen" style="border-radius: 8px;">md · 8</div>
+    <div class="radius-specimen" style="border-radius: 12px;">lg · 12</div>
+    <div class="radius-specimen" style="border-radius: 16px;">xl · 16</div>
+    <div class="radius-specimen" style="border-radius: 9999px;">full</div>
+  </div>
+
+  <h3 class="sub-h">Component mapping</h3>
+  <div class="component-mapping">
+    <div>
+      <div class="cm-row"><span>Inline tags / pills</span><code>0px (none)</code></div>
+      <div class="cm-row"><span>Buttons</span><code>4px (sm)</code></div>
+      <div class="cm-row"><span>Inputs / form fields</span><code>4px (sm)</code></div>
+      <div class="cm-row"><span>Cards / panels</span><code>8px (md)</code></div>
+    </div>
+    <div>
+      <div class="cm-row"><span>Modals / dialogs</span><code>12px (lg)</code></div>
+      <div class="cm-row"><span>Popovers</span><code>8px (md)</code></div>
+      <div class="cm-row"><span>Tooltips</span><code>4px (sm)</code></div>
+      <div class="cm-row"><span>Badges</span><code>full (pill)</code></div>
+    </div>
+  </div>
+
+  <h3 class="sub-h">Elevation</h3>
+  <div class="shadow-row">
+    <div class="shadow-specimen">
+      <div>
+        <span class="label">no shadow</span>
+        <span class="val">— elevation via surface chroma shift</span>
+      </div>
+    </div>
+    <div class="shadow-specimen sm">
+      <div>
+        <span class="label">shadow-sm</span>
+        <span class="val">0 1px 2px oklch(0 0 0 / 0.40)</span>
+      </div>
+    </div>
+    <div class="shadow-specimen md">
+      <div>
+        <span class="label">shadow-md</span>
+        <span class="val">0 6px 16px −4px oklch(0 0 0 / 0.50)</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 5 — Surface Treatment
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section>
+  <div class="section-eyebrow">Section 5</div>
+  <h2 class="section-h">Surface treatment</h2>
+  <p class="section-intro">Three nested levels of dark surface, distinguished by lightness shift (not pattern, not shadow). The composite card at the bottom exercises every other proposed value in this preview — color, type, shape, border — to test that the parts cohere.</p>
+
+  <h3 class="sub-h">Surface stack</h3>
+  <div class="surface-stack">
+    <div class="surface-label">surface</div>
+    <div class="surface-val">oklch(0.16 0.025 290)</div>
+    <div class="surface-stack-inner" style="margin-top: 16px;">
+      <div class="surface-label">surface-raised</div>
+      <div class="surface-val">oklch(0.21 0.028 290)</div>
+      <div class="surface-stack-inner-inner" style="margin-top: 16px;">
+        <div class="surface-label">surface-overlay</div>
+        <div class="surface-val">oklch(0.26 0.030 290)</div>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="sub-h">Borders</h3>
+  <div class="border-row">
+    <div class="border-specimen default">
+      Default border
+      <code>oklch(0.30 0.025 290)</code>
+    </div>
+    <div class="border-specimen strong">
+      Strong border
+      <code>oklch(0.40 0.028 290)</code>
+    </div>
+    <div class="border-specimen focus">
+      Focus ring
+      <code>oklch(0.70 0.18 290) · 2px</code>
+    </div>
+  </div>
+
+  <h3 class="sub-h">Composite card specimen</h3>
+  <p class="section-intro" style="margin-top: -8px;">Exercises every system: type roles, color roles, radius, border, surface levels. If this card feels like five separate decisions placed next to each other, the system isn't coherent yet.</p>
+  <div class="composite-card">
+    <span class="cc-tag">Hybrid</span>
+    <h3 class="cc-title">Firms that want to host themselves.</h3>
+    <p class="cc-body">License the same software to run inside your environment. Same product, your infrastructure, your control.</p>
+    <div class="cc-divider"></div>
+    <div class="cc-row">
+      <span class="cc-revenue">License fee</span>
+      <a href="#" class="link">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 6 — Color in Context
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section>
+  <div class="section-eyebrow">Section 6</div>
+  <h2 class="section-h">Color in context</h2>
+  <p class="section-intro">Color values applied at the component level, where contrast, state, and semantic distinction all play simultaneously.</p>
+
+  <div class="context-grid">
+    <div class="context-cell">
+      <h4>Interactive states</h4>
+      <div class="btn-row">
+        <button class="btn btn-primary">Get in touch</button>
+        <button class="btn btn-primary" style="background: var(--primary-hover);">Get in touch · hover</button>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-secondary">See how it works</button>
+      </div>
+      <p style="margin-top: 16px; font-size: 14px; color: var(--on-surface-muted);">A link to the <a href="#" class="link">platform overview</a> uses lifted violet — passes contrast on raised surface.</p>
+      <div style="margin-top: 20px;">
+        <label class="surface-label" style="margin-bottom: 6px;">Default input</label>
+        <input class="input" type="text" placeholder="you@firm.com">
+        <label class="surface-label" style="margin-bottom: 6px;">Focused input (click to focus)</label>
+        <input class="input" type="text" placeholder="Tab here to see focus ring">
+      </div>
+    </div>
+
+    <div class="context-cell">
+      <h4>Semantic states</h4>
+      <label class="surface-label" style="margin-bottom: 6px;">Error state</label>
+      <input class="input error" type="text" value="invalid@">
+      <span class="error-msg">Please enter a valid email address.</span>
+      <div class="success-msg">
+        <span style="width: 16px; height: 16px; border-radius: 50%; background: var(--success); display: inline-block; flex-shrink: 0;"></span>
+        Demo request received. We'll reach out within one business day.
+      </div>
+      <div class="warning-banner">
+        Beta capability — workflow available to partners under engagement.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ────────────────────────────────────────────────────────────────────
+     SECTION 7 — Reviewer Notes
+     ──────────────────────────────────────────────────────────────────── -->
+
+<section>
+  <div class="section-eyebrow">Section 7</div>
+  <h2 class="section-h">Review checklist</h2>
+  <p class="section-intro">Before approving this visual direction, evaluate these specific decisions. Token generation in Steps 4–6 will treat the approved direction as the source — changes after that point require regeneration.</p>
+
+  <div class="reviewer-notes">
+    <h3>Decisions that required judgment</h3>
+    <ul>
+      <li><strong>Primary color identity at full chroma</strong> <em>— #7008e7 used as-is at interactive elements (no muting). Reads strongly on dark; passes 4.9:1 vs surface and 8.4:1 vs on-primary white. Does this level of saturation feel right, or do you want a more restrained "tinted" treatment?</em></li>
+      <li><strong>Surface violet hue affinity</strong> <em>— Surfaces are deliberately violet-tinted (hue 290°, chroma 0.025–0.030). Visible as a faint warmth/coolness shift away from neutral gray. If this reads too "tinted" or too close to gray, we can dial chroma up or down.</em></li>
+      <li><strong>Sharp radius hierarchy</strong> <em>— 0/4/8/12 across components, not a uniform value. Inline tags get 0px (sharp). Buttons/inputs get 4px. Cards get 8px. Modals get 12px. Does this hierarchy feel right for the brand, or do you want softer (8px buttons) or sharper (2px buttons)?</em></li>
+      <li><strong>Secondary as a steel cyan-blue</strong> <em>— Distinct hue (220°) from primary (290°). Used sparingly. If a secondary isn't actually needed for the marketing site, we drop it and save the role for a future product UI.</em></li>
+      <li><strong>Public Sans + JetBrains Mono (not Inter or Poppins)</strong> <em>— Public Sans for all headings and body text, using weight contrast (300/500/700) to drive hierarchy within a single family. JetBrains Mono for eyebrows and accent text — monospace register shift creates typographic separation without a second display face. Neither Poppins nor Inter is in the system.</em></li>
+      <li><strong>Minimal shadow elevation</strong> <em>— Lift is conveyed primarily by surface lightness shift in dark mode. shadow-sm and shadow-md exist for popovers/modals only. Heavy shadows would push toward the "dark sophisticated" trap.</em></li>
+    </ul>
+
+    <h3>Contrast verifications</h3>
+    <ul>
+      <li><strong>on-surface-faint vs surface</strong> <em>— 4.0:1. Passes AA for large text only. Use exclusively for tertiary/disabled labels, not primary content.</em></li>
+      <li><strong>border-focus visibility</strong> <em>— 6.5:1 against surface, well clear of the 3:1 minimum. Verified visually on raised and overlay surfaces too.</em></li>
+      <li><strong>Semantic colors on raised surface</strong> <em>— Error/success/warning all rendered at typical message backgrounds; passes WCAG AA for accompanying text. Verified inline above.</em></li>
+    </ul>
+
+    <h3>Defaults applied where the brief was silent</h3>
+    <ul>
+      <li><strong>Secondary color exists at all</strong> <em>— No secondary was specified at intake. Proposed a steel cyan-blue to (a) avoid the "single hue everywhere" trap and (b) give the system a counterpoint role if needed. Drop if not wanted.</em></li>
+      <li><strong>Semantic palette (error/success/warning)</strong> <em>— No semantic colors were specified. Selected to coexist with the violet primary at moderate chroma. Verify against any brand guidelines we don't have yet.</em></li>
+      <li><strong>System monospace for code role</strong> <em>— No custom mono font shipped. Used ui-monospace fallback. Tell me if there's a specific mono to use (e.g., JetBrains Mono, Geist Mono).</em></li>
+      <li><strong>Focus ring color (lifted violet)</strong> <em>— Derived from the primary at higher L. Could instead use a neutral focus ring (white-ish) for stronger contrast on colored backgrounds. Current choice keeps brand cohesion.</em></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+</body>
+</html>

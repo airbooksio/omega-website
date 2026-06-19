@@ -1,0 +1,147 @@
+/* ──────────────────────────────────────────────────────────────────────
+   Airbooks Design System — Shape Tokens
+   ──────────────────────────────────────────────────────────────────────
+
+   Three categories: border-radius, border-width, elevation (shadow).
+
+   Personality:        Lean sharp, with a clear hierarchy. Sharp at the
+                       small inline end (tags 0px) — communicating
+                       precision and structural confidence. Moderately
+                       rounded at the container end (modals 12px) —
+                       communicating containment without softness.
+                       Not uniform; uniformity would be the "AI slop"
+                       second-order trap.
+   Naming:             Two layers exposed.
+                       Primitives use size names (radius-none, radius-sm,
+                       radius-md, etc.) — matches conventional code-side
+                       usage and the DESIGN.md schema.
+                       Semantic aliases use role names (radius-interactive,
+                       radius-container, etc.) — match the
+                       role-not-value naming principle for prescriptive
+                       systems. Components SHOULD prefer the role aliases.
+   Elevation strategy: On dark surfaces, lift is primarily communicated
+                       through SURFACE LIGHTNESS SHIFT (surface →
+                       surface-raised → surface-overlay), not drop shadow.
+                       Shadow tokens exist for actually-floating elements
+                       (popovers, modals, dropdowns) only. Heavy shadow
+                       would push toward the "dark sophisticated" trap.
+
+   Source: Style preview approved 2026-05-19; DESIGN.md; Step 2 shape
+   placement decision in LIVING_BRIEF.md.
+
+   ────────────────────────────────────────────────────────────────────── */
+
+:root {
+
+  /* ─── Radius primitives (size-named) ───────────────────────────────
+     Six steps. Hierarchy moves from sharp (0) to fully rounded (full).
+     Values are absolute, not derived from a base unit — radius is a
+     direct visual personality dial. */
+
+  --radius-none:   0px;       /* Sharp. Inline tags, dividers, data cells. */
+  --radius-sm:     4px;       /* Precise. Buttons, inputs, tooltips. */
+  --radius-md:     8px;       /* Containers. Cards, panels, popovers. */
+  --radius-lg:     12px;      /* Overlay. Modals, dialogs, sheets. */
+  --radius-xl:     16px;      /* Reserved. No default consumer in v1. */
+  --radius-full:   9999px;    /* Pill / circular. Badges, avatars, dots. */
+
+  /* ─── Radius semantic aliases (role-named) ─────────────────────────
+     Prefer these in component CSS. They survive future value changes
+     and communicate intent without coupling components to specific
+     pixel values. */
+
+  --radius-data:          var(--radius-none);   /* Tables, code blocks, data cells */
+  --radius-tag:           var(--radius-none);   /* Inline tags, dividers */
+  --radius-interactive:   var(--radius-sm);     /* Buttons, inputs, tooltips */
+  --radius-container:     var(--radius-md);     /* Cards, panels, popovers */
+  --radius-overlay:       var(--radius-lg);     /* Modals, dialogs */
+  --radius-pill:          var(--radius-full);   /* Badges, avatars, status dots */
+
+  /* ─── Border width ─────────────────────────────────────────────────
+     Two structural weights. Default (1px) for separators and outlines;
+     focus (2px) for keyboard focus rings. */
+
+  --border-width-default:  1px;
+  --border-width-focus:    2px;
+
+  /* ─── Elevation (shadow) ───────────────────────────────────────────
+     Tuned for dark surfaces. Alpha is the principal lever — increasing
+     blur radius alone does not communicate lift on a dark ground.
+
+     `none` is the default. Lift comes from surface-lightness shift, not
+     shadow. `shadow-sm` is reserved for hover-interactive cards and
+     tooltips. `shadow-md` is reserved for actually-floating overlays:
+     modals, popovers, dropdowns, dialogs.
+
+     Never apply both surface-overlay AND shadow-md to the same element
+     unless it is a modal — that's the intended composition. Most
+     elevated elements use one or the other, not both. */
+
+  --shadow-none:   none;
+  --shadow-sm:     0 1px 2px 0 rgba(0, 0, 0, 0.40);
+  --shadow-md:     0 6px 16px -4px rgba(0, 0, 0, 0.50);
+}
+
+/* ──────────────────────────────────────────────────────────────────────
+   Component → token mapping
+
+   The system intentionally uses different radii for different component
+   roles. Uniform 8px-everywhere would be a regression. Use this table
+   when adding a new component: choose the role that fits, then use the
+   corresponding semantic alias.
+
+   COMPONENT TYPE                  TOKEN                   VALUE
+   ────────────────────────────────────────────────────────────────
+   Buttons (all variants)          radius-interactive      4px
+   Form inputs                     radius-interactive      4px
+   Tooltips                        radius-interactive      4px
+   Cards / panels                  radius-container        8px
+   Popovers                        radius-container        8px
+   Modals / dialogs                radius-overlay          12px
+   Sheets / side panels            radius-overlay          12px
+   Inline tags                     radius-tag              0px
+   Dividers                        radius-tag              0px
+   Code blocks                     radius-data             0px
+   Data tables / cells             radius-data             0px
+   Pill badges                     radius-pill             full
+   Status dots                     radius-pill             full
+   Avatars                         radius-pill             full
+
+   COMPONENT TYPE                  ELEVATION
+   ────────────────────────────────────────────────────────────────
+   Cards (default)                 shadow-none
+   Cards (hover, if interactive)   shadow-sm
+   Tooltips                        shadow-sm
+   Popovers                        shadow-md
+   Dropdowns / menus               shadow-md
+   Modals / dialogs                shadow-md
+   Sheets / side panels            shadow-md
+
+   ─────────────────────────────────────────────────────────────── */
+
+/* ──────────────────────────────────────────────────────────────────────
+   Authoring rules (encoded as comments, enforced by review)
+
+   - Do NOT introduce new radius values outside the six-step scale.
+     If a component needs a value between sm (4) and md (8), the answer
+     is to use one of them, not to introduce 6px.
+
+   - Do NOT apply the same radius to elements of different roles. A
+     button (4px) and a card (8px) sharing the same radius value would
+     break the hierarchy. The hierarchy IS the system.
+
+   - Do NOT use shadows below shadow-sm threshold. Subtle drop shadows
+     on dark surfaces look like rendering artifacts, not elevation.
+     Use surface-lightness shift for any elevation you can't justify
+     with shadow-sm or shadow-md.
+
+   - Do NOT use side-only borders (left-only colored stripe on a card,
+     etc.) as a primary visual signal. The "alert with left stripe"
+     pattern is explicitly out of scope — use surface-raised + a
+     semantic-container background instead.
+
+   - Tables, data cells, and code blocks always use radius-data (0px),
+     regardless of surrounding container radius. Data communicates
+     structure; sharp edges reinforce that.
+
+   ─────────────────────────────────────────────────────────────── */

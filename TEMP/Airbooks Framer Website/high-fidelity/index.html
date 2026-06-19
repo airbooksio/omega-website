@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Airbooks — Access capital markets infrastructure, finally on your terms.</title>
+<meta name="description" content="Modern applications and an open protocol that give fixed-income teams cleaner, faster, more controllable access to the infrastructure capital markets already run on.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+/* ──────────────────────────────────────────────────────────────────────
+   Airbooks high-fidelity mockup — v0.4
+   ──────────────────────────────────────────────────────────────────────
+   Single dark surface · subtle horizontal borders between sections
+   Public Sans (headings + body) · JetBrains Mono (eyebrows/accents)
+   Body sections restructured as 2-column split (left anchor, right list)
+   Nav fixed, overlaps hero, fades in on scroll
+   ────────────────────────────────────────────────────────────────────── */
+
+:root {
+  /* COLOR */
+  --color-primary:               oklch(0.44 0.27 290);
+  --color-primary-hover:         oklch(0.52 0.27 290);
+  --color-on-primary:            oklch(0.99 0.005 290);
+  --color-primary-container:     oklch(0.31 0.10 290);
+  --color-on-primary-container:  oklch(0.86 0.10 290);
+  --color-accent:                oklch(0.74 0.22 290);   /* punchy violet — eyebrows, accents */
+
+  /* Surfaces — lightened by +0.03 L across the stack */
+  --color-surface:               oklch(0.19 0.028 290);  /* was 0.16 */
+  --color-surface-raised:        oklch(0.22 0.030 290);  /* was 0.19 — CTA section */
+  --color-surface-overlay:       oklch(0.29 0.030 290);  /* was 0.26 */
+  --color-surface-sunken:        oklch(0.15 0.025 290);  /* was 0.12 */
+
+  --color-on-surface:            oklch(0.97 0.008 290);
+  --color-on-surface-muted:      oklch(0.74 0.018 290);
+  --color-on-surface-faint:      oklch(0.48 0.018 290);
+
+  --color-border:                oklch(0.30 0.025 290);
+  --color-border-strong:         oklch(0.42 0.028 290);
+  --color-border-focus:          oklch(0.70 0.18 290);
+
+  /* TYPOGRAPHY */
+  --font-heading: 'Public Sans', system-ui, sans-serif;
+  --font-body:    'Public Sans', system-ui, sans-serif;
+  --font-accent:  'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* SHAPE */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+
+  /* LAYOUT */
+  --container-max: 1200px;
+  --container-gutter: 32px;
+  --section-py: 128px;
+  --nav-height: 72px;
+}
+
+/* ─── Reset / global ─────────────────────────────────────────────── */
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  font-family: var(--font-body);
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+a { color: inherit; text-decoration: none; }
+button { font-family: inherit; cursor: pointer; }
+img, svg { display: block; max-width: 100%; }
+
+/* ─── Layout primitives ──────────────────────────────────────────── */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter);
+  position: relative;
+}
+
+.section {
+  padding-block: var(--section-py);
+  position: relative;
+  border-top: 1px solid var(--color-border);
+}
+.section:first-of-type { border-top: none; }
+
+/* ─── Typography ─────────────────────────────────────────────────── */
+
+.eyebrow {
+  font-family: var(--font-accent);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  display: block;
+  margin-bottom: 24px;
+}
+
+/* Hero H1 — Poppins, weight-driven emphasis (300 default, 800 highlights) */
+.hero h1 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin: 0 0 36px 0;
+  color: var(--color-on-surface);
+}
+.hero h1 .emp {
+  font-weight: 600;
+  letter-spacing: -0.03em;  /* tighter at heavier weight */
+}
+
+/* Section H2 — Poppins 500, big */
+.section h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(36px, 4.4vw, 56px);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  color: var(--color-on-surface);
+  margin: 0 0 28px 0;
+  max-width: 20ch;
+}
+
+.lede {
+  font-family: var(--font-body);
+  font-size: 19px;
+  line-height: 1.55;
+  font-weight: 300;
+  color: var(--color-on-surface-muted);
+  margin: 0;
+  max-width: 56ch;
+}
+.lede .emphasis {
+  color: var(--color-on-surface);
+  font-weight: 700;
+}
+
+/* ─── Nav ────────────────────────────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 240ms ease,
+    backdrop-filter 240ms ease,
+    -webkit-backdrop-filter 240ms ease,
+    border-color 240ms ease;
+}
+.nav.is-scrolled {
+  background: color-mix(in oklch, var(--color-surface) 50%, transparent);
+  backdrop-filter: saturate(180%) blur(14px);
+  -webkit-backdrop-filter: saturate(180%) blur(14px);
+  border-bottom-color: var(--color-border);
+}
+.nav-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding: 20px var(--container-gutter);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+.nav-logo img {
+  height: 28px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  gap: 36px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.nav-links a {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  color: var(--color-on-surface-muted);
+  transition: color 140ms ease;
+  padding: 4px 0;
+}
+.nav-links a:hover { color: var(--color-on-surface); }
+.nav-links a:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+/* ─── Buttons ────────────────────────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  padding: 13px 22px;
+  min-height: 44px;
+  transition: background-color 160ms ease, border-color 160ms ease;
+}
+.btn:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+.btn-primary { background: var(--color-primary); color: var(--color-on-primary); }
+.btn-primary:hover { background: var(--color-primary-hover); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--color-on-surface);
+  border-color: var(--color-border-strong);
+}
+.btn-ghost:hover {
+  border-color: var(--color-on-surface-faint);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.btn-inverse {
+  background: var(--color-on-surface);
+  color: var(--color-surface);
+}
+.btn-inverse:hover {
+  background: var(--color-on-primary-container);
+}
+
+.btn-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+/* ─── Hero ───────────────────────────────────────────────────────── */
+
+.hero {
+  background-color: var(--color-surface-raised);
+  padding-block: 144px 128px 48px;
+  position: relative;
+  overflow: hidden;
+  border-top: none;
+  --parallax-y: 0px;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  bottom: -50%;
+  left: 50%;
+  transform: translate(-50%, var(--parallax-y));
+  width: max(200%, 1728px);
+  aspect-ratio: 1728 / 700;
+  background-image: url('assets/bg-eclipse-circle.svg');
+  background-size: 175% 80%;
+  background-position: center center;
+  z-index: 0;
+  pointer-events: none;
+  will-change: transform;
+  opacity: 1;
+  /* filter: blur(.125rem) */
+}
+.hero .container {
+  position: relative;
+  z-index: 1;
+}
+.hero-text {
+  max-width: var(--container-max);
+  padding: 3rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.hero-text .lede {
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-inline: auto;
+}
+.hero-text .btn-row { justify-content: center; }
+
+/* ─── Split-section layout (Problem, Approach, OMEGA, Why Airbooks) ─ */
+
+.section-split .split-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;  /* left 60% / right 40% */
+  gap: 96px;
+  align-items: start;
+}
+
+.split-left {
+  align-self: start;
+}
+.split-left h2 { max-width: 16ch; }
+.split-left .lede { max-width: 44ch; }
+
+.split-right { display: flex; flex-direction: column; padding-top: 38px; }
+
+.split-item {
+  padding: 32px 0;
+  border-top: 0.5px solid;
+  border-image: linear-gradient(to right,
+    oklch(0.70 0.22 290 / 0.85) 0%,
+    oklch(0.55 0.18 290 / 0.45) 22%,
+    oklch(0.34 0.06 290) 55%,
+    var(--color-border) 100%) 1;
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+.split-item:first-child {
+  border-top: none;
+  border-image: none;
+  padding-top: 0;
+}
+.split-item:last-child { padding-bottom: 0; }
+
+.split-content { flex: 1 1 auto; }
+.split-content h3 {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--color-on-surface);
+  margin: 0 0 10px 0;
+}
+.split-content p {
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.6;
+  color: var(--color-on-surface-muted);
+  margin: 0;
+}
+.split-content p + p { margin-top: 12px; }
+.split-content p strong {
+  display: block;
+  margin-top: 14px;
+  color: var(--color-on-surface);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: -0.005em;
+}
+
+/* OMEGA icon style (in-line at left of split-item) */
+.split-icon {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  background: var(--color-primary-container);
+  color: var(--color-accent);
+  margin-top: 4px;
+}
+.split-icon svg { width: 20px; height: 20px; stroke: currentColor; }
+
+/* Closing statement at end of split-right */
+.split-closing {
+  margin-top: 8px;
+  padding: 40px 0 0;
+  border-top: 0.5px solid;
+  border-image: linear-gradient(to right,
+    oklch(0.70 0.22 290 / 0.85) 0%,
+    oklch(0.55 0.18 290 / 0.45) 22%,
+    oklch(0.34 0.06 290) 55%,
+    var(--color-border) 100%) 1;
+}
+.split-closing p {
+  font-family: var(--font-body);
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-on-surface);
+  margin: 0;
+  max-width: 38ch;
+}
+
+/* ─── Applications cards (the only true cards) ───────────────────── */
+
+.app-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 64px;
+}
+.app-card {
+  position: relative;
+  border: 0.5px solid transparent;
+  background:
+    linear-gradient(var(--color-surface), var(--color-surface)) padding-box,
+    linear-gradient(135deg,
+      oklch(0.70 0.22 290 / 0.85) 0%,
+      oklch(0.55 0.18 290 / 0.45) 22%,
+      oklch(0.34 0.06 290) 55%,
+      var(--color-border) 100%) border-box;
+  border-radius: var(--radius-md);
+  padding: 24px;
+}
+.app-card .tag {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(112, 8, 231, 0.18);
+  color: var(--color-accent);
+  font-family: var(--font-accent);
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  padding: 4px 10px;
+  margin-bottom: 24px;
+}
+.app-card h3 {
+  font-family: 'Public Sans', system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.3;
+  letter-spacing: -0.005em;
+  color: var(--color-on-surface);
+  margin: 0 0 12px 0;
+}
+.app-card .body {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+.app-card .revenue {
+  display: block;
+  margin-top: 20px;
+  font-family: var(--font-accent);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-on-surface-faint);
+}
+
+/* Applications header treatment — centered intro band above the cards */
+.section-app .eyebrow {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-app h2 {
+  text-align: center;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+.section-app .lede {
+  text-align: center;
+  max-width: 64ch;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 0;
+}
+
+/* Applications closing tagline */
+.app-closing {
+  text-align: center;
+  margin: 96px auto 0;
+  max-width: 760px;
+}
+.app-closing-rule {
+  width: 56px;
+  height: 1.5px;
+  background: var(--color-accent);
+  margin: 0 auto 28px;
+}
+.app-closing p {
+  font-family: var(--font-body);
+  font-size: 28px;
+  line-height: 1.45;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+.app-closing p em {
+  font-style: italic;
+  font-weight: 700;
+}
+
+/* ─── Final CTA ──────────────────────────────────────────────────── */
+
+.cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-surface-raised);
+  text-align: center;
+  margin-inline: var(--container-gutter);
+  border-radius: 20px;
+  border-top: none;
+  border: 1px solid var(--color-border);
+}
+.cta-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.55;
+  object-fit: cover;
+}
+.cta .container { position: relative; z-index: 1; }
+.cta h2 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: clamp(36px, 4.6vw, 60px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--color-on-surface);
+  max-width: 18ch;
+  margin: 0 auto 24px;
+}
+.cta-sub {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--color-on-surface-muted);
+  max-width: 580px;
+  margin: 0 auto 40px;
+}
+.cta .eyebrow { margin-bottom: 24px; }
+
+/* ─── Footer ─────────────────────────────────────────────────────── */
+
+.footer {
+  padding-block: 56px 48px;
+}
+.footer-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-gutter);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+.footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.footer-brand img {
+  height: 36px;
+  width: auto;
+}
+.footer-tagline {
+  font-family: var(--font-body);
+  font-size: 13px;
+  color: var(--color-on-surface-muted);
+  max-width: 280px;
+  line-height: 1.4;
+}
+.footer-copy {
+  font-family: var(--font-accent);
+  font-size: 11px;
+  color: var(--color-on-surface-faint);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+/* ─── Why Airbooks — horizontal 4-col grid ───────────────────────── */
+
+.why-items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 64px;
+}
+.why-item {
+  padding-top: 28px;
+  border-top: 0.5px solid;
+  border-image: linear-gradient(to right,
+    oklch(0.70 0.22 290 / 0.85) 0%,
+    oklch(0.55 0.18 290 / 0.45) 22%,
+    oklch(0.34 0.06 290) 55%,
+    var(--color-border) 100%) 1;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────── */
+
+@media (max-width: 1024px) {
+  :root { --section-py: 96px; }
+  .app-cards { grid-template-columns: repeat(2, 1fr); }
+  .why-items { grid-template-columns: repeat(2, 1fr); }
+  .section-split .split-grid { gap: 56px; }
+}
+
+@media (max-width: 860px) {
+  .section-split .split-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+  .split-left {
+    position: static;
+    top: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --section-py: 80px;
+    --container-gutter: 20px;
+  }
+  .hero { padding-block: 112px 80px; }
+  .app-cards { grid-template-columns: 1fr; }
+  .why-items { grid-template-columns: 1fr; }
+  .nav-links { gap: 18px; }
+  .nav-links a { font-size: 12px; }
+  .footer-inner { flex-direction: column; align-items: flex-start; }
+  .section:not(.hero):not(.cta) .container { padding-inline: 40px; }
+}
+
+@media (max-width: 480px) {
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── Nav ────────────────────────────────────────────────────────── -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo">
+      <img src="assets/AB-Logo_Horizontal_Dark.svg" alt="Airbooks">
+    </a>
+    <ul class="nav-links">
+      <li><a href="#approach">Approach</a></li>
+      <li><a href="#platform">Platform</a></li>
+      <li><a href="#applications">Applications</a></li>
+      <li><a href="#why-airbooks">Why Airbooks</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ─── Hero ───────────────────────────────────────────────────────── -->
+<section class="section hero">
+  <div class="container">
+    <div class="hero-text">
+      <h1>
+        Access capital markets infrastructure, finally on your terms.
+      </h1>
+      <p class="lede">Modern applications and an open protocol that give fixed-income teams cleaner, faster, more controllable access to the infrastructure capital markets already run on.</p>
+      <div class="btn-row">
+        <a href="mailto:hello@airbooks.io" class="btn btn-primary">Get in touch</a>
+        <a href="#approach" class="btn btn-ghost">See how it works</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── The Problem ────────────────────────────────────────────────── -->
+<section class="section section-split" id="problem">
+  <div class="container">
+    <div class="split-grid">
+      <div class="split-left">
+        <span class="eyebrow">The Problem</span>
+        <h2>Capital markets infrastructure is gated, bundled, and built for a different era.</h2>
+        <p class="lede">Capital markets teams have two options today: rent workflows from a single entrenched vendor, or build internally and watch software without market connectivity fail to gain traction. Neither is working.</p>
+      </div>
+      <div class="split-right">
+        <div class="split-item">
+          <div class="split-content">
+            <h3>Gated by a single vendor.</h3>
+            <p>The incumbent bundles aging applications with the network layer the market depends on. Either you take both, or you don't get connected.</p>
+          </div>
+        </div>
+        <div class="split-item">
+          <div class="split-content">
+            <h3>You can't build your own way in.</h3>
+            <p>The largest firms have built their own tools. Software without market connectivity is an island.</p>
+          </div>
+        </div>
+        <div class="split-item">
+          <div class="split-content">
+            <h3>Your own data is sold back to you.</h3>
+            <p>Transaction data is surrendered to a single vendor and resold back as analytics.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Our Approach ──────────────────────────────────────────────── -->
+<section class="section section-split" id="approach">
+  <div class="container">
+    <div class="split-grid">
+      <div class="split-left">
+        <span class="eyebrow">Our Approach</span>
+        <h2>We partner with the market to open it up — not just sell into it.</h2>
+        <p class="lede">We sit down with sell-side, buy-side, and issuer teams to find where access is gated, where data is leaking value, and where outcomes are slipping. Then we work shoulder-to-shoulder with you to fix it. What we measure doesn't change from engagement to engagement: the outcome on your desk.</p>
+      </div>
+      <div class="split-right">
+        <div class="split-item">
+          <div class="split-content">
+            <h3>Partnership, not procurement.</h3>
+            <p>We don't sell off a shelf. Every engagement is a working relationship with your team, scoped around the access and outcomes you need. The methods flex. The relationship doesn't.</p>
+            <p><strong>How we deliver is a conversation. Whether we deliver isn't.</strong></p>
+          </div>
+        </div>
+        <div class="split-item">
+          <div class="split-content">
+            <h3>Outcomes are the deliverable.</h3>
+            <p>Better access. Faster execution. Margin recovered. Data control regained. If we don't move a number that matters to your desk, we haven't done the job — regardless of what shipped to get there.</p>
+          </div>
+        </div>
+        <div class="split-closing">
+          <p>You set the outcomes. You own the data. You keep the option to leave.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── The Open Platform (OMEGA) ─────────────────────────────────── -->
+<section class="section section-split" id="platform">
+  <div class="container">
+    <div class="split-grid">
+      <div class="split-left">
+        <span class="eyebrow">The Open Platform</span>
+        <h2>An open access layer, by design.</h2>
+        <p class="lede">Behind every Airbooks application is OMEGA — the Open Markets Exchange, Governance &amp; Access protocol. <span class="emphasis">Access is in the name for a reason.</span></p>
+      </div>
+      <div class="split-right">
+        <div class="split-item">
+          <span class="split-icon">
+            <!-- lucide: shield-check -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </span>
+          <div class="split-content">
+            <h3>You control who gets access to your data.</h3>
+            <p>Zero-trust by default. Granular, participant-managed access controls. No proprietary formats, no exit fees, no analytics built from your own data and sold back to you.</p>
+          </div>
+        </div>
+        <div class="split-item">
+          <span class="split-icon">
+            <!-- lucide: network -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <rect x="16" y="16" width="6" height="6" rx="1"/>
+              <rect x="2" y="16" width="6" height="6" rx="1"/>
+              <rect x="9" y="2" width="6" height="6" rx="1"/>
+              <path d="M5 16v-3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1v3"/>
+              <path d="M12 12V8"/>
+            </svg>
+          </span>
+          <div class="split-content">
+            <h3>Built for interoperability.</h3>
+            <p>API-first, mapped to common standards (ICMA, CDM, DTCC, MSRB). Connect any system, ingest from any source. Third parties — including your own teams — can build on top.</p>
+          </div>
+        </div>
+        <div class="split-item">
+          <span class="split-icon">
+            <!-- lucide: landmark -->
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 22h18"/>
+              <path d="M6 18V11"/>
+              <path d="M10 18V11"/>
+              <path d="M14 18V11"/>
+              <path d="M18 18V11"/>
+              <path d="M12 2 2 7h20L12 2z"/>
+            </svg>
+          </span>
+          <div class="split-content">
+            <h3>Governed by the market, not a vendor.</h3>
+            <p>OMEGA's governance layer is designed to be run by a non-profit consortium of market participants, with default policies open to all. Shared rules, individual control, no single point of capture.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Applications ──────────────────────────────────────────────── -->
+<section class="section section-app" id="applications">
+  <div class="container">
+    <span class="eyebrow">Applications</span>
+    <h2>Full coverage. Full spectrum.</h2>
+    <p class="lede">From regional dealers that want it turnkey to top dealers building on our APIs themselves, we engage at every point on the build-vs-buy spectrum — so every participant in the market has a way to work with us.</p>
+    <div class="app-cards">
+      <div class="app-card">
+        <span class="tag">Full Buy</span>
+        <h3>Regional dealers, issuers, buy-side.</h3>
+        <p class="body">Turnkey software, hosted by us, with the workflow you need covered out of the box.</p>
+        <span class="revenue">SaaS / per-transaction</span>
+      </div>
+      <div class="app-card">
+        <span class="tag">Hybrid</span>
+        <h3>Firms that want to host themselves.</h3>
+        <p class="body">License the same software to run inside your environment. Same product, your infrastructure, your control.</p>
+        <span class="revenue">License fee</span>
+      </div>
+      <div class="app-card">
+        <span class="tag">Hybrid</span>
+        <h3>Teams that need it tailored.</h3>
+        <p class="body">Services-led engagement that shapes the software around your specific workflows. We work shoulder-to-shoulder with your team.</p>
+        <span class="revenue">Services fee</span>
+      </div>
+      <div class="app-card">
+        <span class="tag">Full Build</span>
+        <h3>Top dealers with internal tech orgs.</h3>
+        <p class="body">Build on our APIs directly. Your engineers, our access layer.</p>
+        <span class="revenue">Network fees</span>
+      </div>
+    </div>
+    <div class="app-closing">
+      <p>Every participant across the build-to-buy spectrum — <em>evolving with the market as AI democratizes software.</em></p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Why Airbooks ──────────────────────────────────────────────── -->
+<section class="section" id="why-airbooks">
+  <div class="container">
+    <span class="eyebrow">Why Airbooks</span>
+    <h2>Why us, why now?</h2>
+    <div class="why-items">
+      <div class="why-item">
+        <div class="split-content">
+          <h3>Decades of operator-built expertise.</h3>
+          <p>Founded by capital markets veterans who have run the desks, built the tools, and consulted on this problem for over a decade.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="split-content">
+          <h3>Open access by design, not by marketing.</h3>
+          <p>Clean off-ramps, open standards, no proprietary data formats. Our success has to come from the quality of the access we deliver — and we're fine with that.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="split-content">
+          <h3>Live in the market today.</h3>
+          <p>Not slideware. Active engagements across sell-side, buy-side, and issuer teams in the municipal market, with the access layer underneath in initial deployment.</p>
+        </div>
+      </div>
+      <div class="why-item">
+        <div class="split-content">
+          <h3>Built for the AI era.</h3>
+          <p>Capital markets data in clean schemas, with real governance. The access foundation AI-driven workflows, agentic tools, and tokenized settlement need.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Final CTA ──────────────────────────────────────────────────── -->
+<section class="section cta">
+  <img class="cta-bg" src="assets/gradient-bg-1.svg" alt="">
+  <div class="container">
+    <h2>Better access starts with a conversation.</h2>
+    <p class="cta-sub">Tell us where access is gated, where data's leaking value, or where outcomes are slipping. We'll come to you.</p>
+    <a href="mailto:hello@airbooks.io" class="btn btn-inverse">Get in touch</a>
+  </div>
+</section>
+
+<!-- ─── Footer ─────────────────────────────────────────────────────── -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/AB-Logo_Vertical_Dark.svg" alt="Airbooks">
+      <span class="footer-tagline">Better access to capital markets infrastructure.</span>
+    </div>
+    <span class="footer-copy">&copy; 2026 Airbooks, Inc.</span>
+  </div>
+</footer>
+
+<script>
+/* Nav fades in once the user scrolls away from the top. */
+(function() {
+  const nav = document.getElementById('nav');
+  if (!nav) return;
+  let lastY = -1;
+  function update() {
+    const y = window.scrollY;
+    if (y === lastY) return;
+    lastY = y;
+    nav.classList.toggle('is-scrolled', y > 20);
+  }
+  window.addEventListener('scroll', update, { passive: true });
+  update();
+})();
+
+/* Subtle parallax on the hero eclipse — 35% of scroll speed. */
+(function() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+  let ticking = false;
+  function update() {
+    hero.style.setProperty('--parallax-y', `${window.scrollY * -0.35}px`);
+    ticking = false;
+  }
+  window.addEventListener('scroll', () => {
+    if (!ticking) { requestAnimationFrame(update); ticking = true; }
+  }, { passive: true });
+})();
+</script>
+
+</body>
+</html>

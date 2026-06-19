@@ -1,0 +1,17 @@
+{
+  "radius": {
+    "$description": "Radius hierarchy — moderately rounded (8px containers) with pill CTAs reserved as a high-emphasis signal. Sits center-right on the sharp<->rounded spectrum: professional and precise, but approachable. NOT uniform: inline controls round less than containers.",
+    "none": { "$type": "dimension", "$value": "0px",    "$description": "Data tables, code blocks, image containers — signal structure/precision" },
+    "sm":   { "$type": "dimension", "$value": "4px",    "$description": "Inputs, selects, checkboxes, small controls" },
+    "md":   { "$type": "dimension", "$value": "6px",    "$description": "Non-pill buttons, badges, chips" },
+    "lg":   { "$type": "dimension", "$value": "8px",    "$description": "Cards, panels, popovers" },
+    "xl":   { "$type": "dimension", "$value": "12px",   "$description": "Modals, dialogs, sheets" },
+    "full": { "$type": "dimension", "$value": "9999px", "$description": "Pills (primary CTAs), avatars, toggle tracks, status dots — used selectively for emphasis" }
+  },
+  "shadow": {
+    "$description": "Elevation shadows tuned for a dark surface — deeper and softer than the light-theme 0 1px 3px/0.1 cliche, since shadows read weakly on dark backgrounds.",
+    "sm": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "1px",  "blur": "2px",  "spread": "0px", "color": "rgba(0, 0, 0, 0.4)" }, "$description": "Subtle lift — chips, hovered inline controls" },
+    "md": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "4px",  "blur": "12px", "spread": "0px", "color": "rgba(0, 0, 0, 0.5)" }, "$description": "Cards, popovers, dropdowns" },
+    "lg": { "$type": "shadow", "$value": { "offsetX": "0px", "offsetY": "16px", "blur": "40px", "spread": "0px", "color": "rgba(0, 0, 0, 0.6)" }, "$description": "Modals, dialogs, sheets" }
+  }
+}

@@ -1,0 +1,99 @@
+{
+  "font": {
+    "$description": "Typeface stacks. DM Sans (UI/display) + DM Mono (code, overlines).",
+    "sans": { "$type": "fontFamily", "$value": ["DM Sans", "DM Sans Fallback", "sans-serif"] },
+    "mono": { "$type": "fontFamily", "$value": ["DM Mono", "DM Mono Fallback", "monospace"] }
+  },
+  "type": {
+    "$description": "Type roles. Modular Major Third (1.25) hand-tuned to clean px from a 16px base. Weight, size, and tracking all vary across roles. Line-height calibrated per size; letter-spacing negative at display sizes, positive at small sizes.",
+    "display": {
+      "$description": "Hero headline — the single largest type on a page",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "60px" },
+      "weight":         { "$type": "fontWeight", "$value": 600 },
+      "line-height":    { "$type": "number",     "$value": 1.05 },
+      "letter-spacing": { "$type": "dimension",  "$value": "-0.02em" }
+    },
+    "heading-lg": {
+      "$description": "Major section headings (h2)",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "36px" },
+      "weight":         { "$type": "fontWeight", "$value": 600 },
+      "line-height":    { "$type": "number",     "$value": 1.15 },
+      "letter-spacing": { "$type": "dimension",  "$value": "-0.015em" }
+    },
+    "heading-md": {
+      "$description": "Sub-section headings (h3)",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "24px" },
+      "weight":         { "$type": "fontWeight", "$value": 600 },
+      "line-height":    { "$type": "number",     "$value": 1.25 },
+      "letter-spacing": { "$type": "dimension",  "$value": "-0.01em" }
+    },
+    "heading-sm": {
+      "$description": "Card titles, small headings (h4)",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "20px" },
+      "weight":         { "$type": "fontWeight", "$value": 600 },
+      "line-height":    { "$type": "number",     "$value": 1.3 },
+      "letter-spacing": { "$type": "dimension",  "$value": "-0.005em" }
+    },
+    "body-lg": {
+      "$description": "Lead paragraphs, hero subhead",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "18px" },
+      "weight":         { "$type": "fontWeight", "$value": 400 },
+      "line-height":    { "$type": "number",     "$value": 1.6 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0em" }
+    },
+    "body": {
+      "$description": "Default body text — prose, descriptions",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "16px" },
+      "weight":         { "$type": "fontWeight", "$value": 400 },
+      "line-height":    { "$type": "number",     "$value": 1.6 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0em" }
+    },
+    "body-sm": {
+      "$description": "Dense/secondary body, list items",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "14px" },
+      "weight":         { "$type": "fontWeight", "$value": 400 },
+      "line-height":    { "$type": "number",     "$value": 1.5 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0em" }
+    },
+    "label": {
+      "$description": "Form labels, nav links, button text",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "14px" },
+      "weight":         { "$type": "fontWeight", "$value": 500 },
+      "line-height":    { "$type": "number",     "$value": 1.4 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0.005em" }
+    },
+    "overline": {
+      "$description": "Eyebrows / section kickers — uppercase, tracked, mono",
+      "family":         { "$type": "fontFamily", "$value": "{font.mono}" },
+      "size":           { "$type": "dimension",  "$value": "12px" },
+      "weight":         { "$type": "fontWeight", "$value": 500 },
+      "line-height":    { "$type": "number",     "$value": 1.4 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0.08em" },
+      "text-transform": { "$type": "string",     "$value": "uppercase" }
+    },
+    "caption": {
+      "$description": "Fine print, footnotes, metadata",
+      "family":         { "$type": "fontFamily", "$value": "{font.sans}" },
+      "size":           { "$type": "dimension",  "$value": "12px" },
+      "weight":         { "$type": "fontWeight", "$value": 400 },
+      "line-height":    { "$type": "number",     "$value": 1.4 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0.01em" }
+    },
+    "code": {
+      "$description": "Inline and block code — monospace",
+      "family":         { "$type": "fontFamily", "$value": "{font.mono}" },
+      "size":           { "$type": "dimension",  "$value": "14px" },
+      "weight":         { "$type": "fontWeight", "$value": 400 },
+      "line-height":    { "$type": "number",     "$value": 1.5 },
+      "letter-spacing": { "$type": "dimension",  "$value": "0em" }
+    }
+  }
+}

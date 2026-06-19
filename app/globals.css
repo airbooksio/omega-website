@@ -1,92 +1,52 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import './tokens.generated.css';
 
 @custom-variant dark (&:is(.dark *));
 
+/* shadcn-compatible semantic aliases, sourced from DS role tokens (tokens.generated.css).
+   Dark-only: :root holds the only theme. */
 :root {
-  /* Grayscale-15 as base background */
-  --background: #0D1123;
-  /* Grayscale-0 for text on dark */
-  --foreground: #F9F9F9;
-  /* Grayscale-14 for card surfaces */
-  --card: #12172B;
-  --card-foreground: #F9F9F9;
-  --popover: #12172B;
-  --popover-foreground: #F9F9F9;
-  /* Purple-10 as primary accent */
-  --primary: #6100FF;
-  --primary-foreground: #FCFAFF;
-  /* Grayscale-13 for secondary surfaces */
-  --secondary: #23273D;
-  --secondary-foreground: #EFEFEF;
-  /* Grayscale-12 for muted surfaces */
-  --muted: #313549;
-  --muted-foreground: #A5A5A5;
-  /* Purple-8 for accent elements */
-  --accent: #8B3DFF;
-  --accent-foreground: #FCFAFF;
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.577 0.245 27.325);
-  /* Grayscale-12 for borders */
-  --border: #313549;
-  --input: #313549;
-  /* Purple-7 for ring/focus */
-  --ring: #9F5CFF;
-  /* Blue tokens for charts */
-  --chart-1: #6100FF;
-  --chart-2: #0075FF;
-  --chart-3: #3D92FF;
-  --chart-4: #8B3DFF;
-  --chart-5: #66A7FF;
-  --radius: 0.5rem;
-  --sidebar: #12172B;
-  --sidebar-foreground: #F9F9F9;
-  --sidebar-primary: #6100FF;
-  --sidebar-primary-foreground: #FCFAFF;
-  --sidebar-accent: #23273D;
-  --sidebar-accent-foreground: #EFEFEF;
-  --sidebar-border: #313549;
-  --sidebar-ring: #9F5CFF;
-}
-
-.dark {
-  --background: #0D1123;
-  --foreground: #F9F9F9;
-  --card: #12172B;
-  --card-foreground: #F9F9F9;
-  --popover: #12172B;
-  --popover-foreground: #F9F9F9;
-  --primary: #6100FF;
-  --primary-foreground: #FCFAFF;
-  --secondary: #23273D;
-  --secondary-foreground: #EFEFEF;
-  --muted: #313549;
-  --muted-foreground: #A5A5A5;
-  --accent: #8B3DFF;
-  --accent-foreground: #FCFAFF;
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: #313549;
-  --input: #313549;
-  --ring: #9F5CFF;
-  --chart-1: #6100FF;
-  --chart-2: #0075FF;
-  --chart-3: #3D92FF;
-  --chart-4: #8B3DFF;
-  --chart-5: #66A7FF;
-  --sidebar: #12172B;
-  --sidebar-foreground: #F9F9F9;
-  --sidebar-primary: #6100FF;
-  --sidebar-primary-foreground: #FCFAFF;
-  --sidebar-accent: #23273D;
-  --sidebar-accent-foreground: #EFEFEF;
-  --sidebar-border: #313549;
-  --sidebar-ring: #9F5CFF;
+  --background: var(--ds-color-surface);
+  --foreground: var(--ds-color-on-surface);
+  --card: var(--ds-color-surface-raised);
+  --card-foreground: var(--ds-color-on-surface);
+  --popover: var(--ds-color-surface-overlay);
+  --popover-foreground: var(--ds-color-on-surface);
+  --primary: var(--ds-color-primary);
+  --primary-foreground: var(--ds-color-on-primary);
+  --secondary: var(--ds-color-secondary);
+  --secondary-foreground: var(--ds-color-on-secondary);
+  --muted: var(--ds-palette-neutral-800);
+  --muted-foreground: var(--ds-color-on-surface-muted);
+  --accent: var(--ds-color-primary-container);
+  --accent-foreground: var(--ds-color-on-primary-container);
+  --destructive: var(--ds-color-error);
+  --destructive-foreground: var(--ds-color-on-error);
+  --border: var(--ds-color-border);
+  --input: var(--ds-color-border);
+  --ring: var(--ds-color-border-focus);
+  --chart-1: var(--ds-color-primary);
+  --chart-2: var(--ds-color-secondary);
+  --chart-3: var(--ds-palette-blue-300);
+  --chart-4: var(--ds-palette-primary-400);
+  --chart-5: var(--ds-palette-blue-200);
+  --radius: var(--ds-radius-lg);
+  --sidebar: var(--ds-color-surface-raised);
+  --sidebar-foreground: var(--ds-color-on-surface);
+  --sidebar-primary: var(--ds-color-primary);
+  --sidebar-primary-foreground: var(--ds-color-on-primary);
+  --sidebar-accent: var(--ds-color-surface-overlay);
+  --sidebar-accent-foreground: var(--ds-color-on-surface);
+  --sidebar-border: var(--ds-color-border);
+  --sidebar-ring: var(--ds-color-border-focus);
 }
 
 @theme inline {
-  --font-sans: 'DM Sans', 'DM Sans Fallback', sans-serif;
-  --font-mono: 'DM Mono', 'DM Mono Fallback', monospace;
+  --font-sans: var(--ds-font-sans);
+  --font-mono: var(--ds-font-mono);
+
+  /* --- shadcn semantic color utilities (bg-background, text-foreground, bg-primary, ...) --- */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -111,10 +71,6 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -123,60 +79,143 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  
-  /* Custom Gray Scale */
-  --color-gray-50: #F9F9F9;
-  --color-gray-100: #EFEFEF;
-  --color-gray-150: #E0E0E0;
-  --color-gray-200: #CBCBCB;
-  --color-gray-250: #B7B7B7;
-  --color-gray-300: #A5A5A5;
-  --color-gray-350: #919191;
-  --color-gray-400: #818181;
-  --color-gray-500: #717172;
-  --color-gray-600: #5F6068;
-  --color-gray-700: #525460;
-  --color-gray-750: #424556;
-  --color-gray-800: #313549;
-  --color-gray-850: #23273D;
-  --color-gray-900: #12172B;
-  --color-gray-950: #0D1123;
-  
-  /* Custom Purple Scale */
-  --color-purple-50: #FCFAFF;
-  --color-purple-100: #F4EBFF;
-  --color-purple-150: #E9D6FF;
-  --color-purple-200: #DDC2FF;
-  --color-purple-250: #CEA8FF;
-  --color-purple-300: #BF8FFF;
-  --color-purple-350: #AF75FF;
-  --color-purple-400: #9F5CFF;
-  --color-purple-500: #8B3DFF;
-  --color-purple-600: #761FFF;
-  --color-purple-700: #6100FF;
-  --color-purple-750: #4500D4;
-  --color-purple-800: #3100B0;
-  --color-purple-850: #1E0087;
-  --color-purple-900: #0F005C;
-  --color-purple-950: #0A0047;
-  
-  /* Custom Blue Scale */
-  --color-blue-50: #F5F9FF;
-  --color-blue-100: #E6EFFF;
-  --color-blue-150: #CCE0FF;
-  --color-blue-200: #ADCEFF;
-  --color-blue-250: #8ABAFF;
-  --color-blue-300: #66A7FF;
-  --color-blue-350: #3D92FF;
-  --color-blue-400: #0075FF;
-  --color-blue-500: #006FDB;
-  --color-blue-600: #0063B0;
-  --color-blue-700: #00568F;
-  --color-blue-750: #004A73;
-  --color-blue-800: #003B57;
-  --color-blue-850: #002A3B;
-  --color-blue-900: #001B24;
-  --color-blue-950: #001319;
+
+  /* --- radius scale (from shape.json) --- */
+  --radius-sm: var(--ds-radius-sm);
+  --radius-md: var(--ds-radius-md);
+  --radius-lg: var(--ds-radius-lg);
+  --radius-xl: var(--ds-radius-xl);
+
+  /* --- elevation shadows (from shape.json) --- */
+  --shadow-sm: var(--ds-shadow-sm);
+  --shadow-md: var(--ds-shadow-md);
+  --shadow-lg: var(--ds-shadow-lg);
+
+  /* --- DS semantic role utilities (surface / on-* / feedback) --- */
+  --color-surface: var(--ds-color-surface);
+  --color-surface-raised: var(--ds-color-surface-raised);
+  --color-surface-overlay: var(--ds-color-surface-overlay);
+  --color-on-surface: var(--ds-color-on-surface);
+  --color-on-surface-muted: var(--ds-color-on-surface-muted);
+  --color-on-primary: var(--ds-color-on-primary);
+  --color-primary-container: var(--ds-color-primary-container);
+  --color-on-primary-container: var(--ds-color-on-primary-container);
+  --color-on-secondary: var(--ds-color-on-secondary);
+  --color-secondary-container: var(--ds-color-secondary-container);
+  --color-on-secondary-container: var(--ds-color-on-secondary-container);
+  --color-border-focus: var(--ds-color-border-focus);
+  --color-success: var(--ds-color-success);
+  --color-on-success: var(--ds-color-on-success);
+  --color-warning: var(--ds-color-warning);
+  --color-on-warning: var(--ds-color-on-warning);
+  --color-error: var(--ds-color-error);
+  --color-on-error: var(--ds-color-on-error);
+
+  /* --- type scale (from typography.json): text-display, text-heading-lg, text-body, text-overline, ... --- */
+  --text-display: var(--ds-type-display-size);
+  --text-display--line-height: var(--ds-type-display-line-height);
+  --text-display--font-weight: var(--ds-type-display-weight);
+  --text-display--letter-spacing: var(--ds-type-display-letter-spacing);
+  --text-heading-lg: var(--ds-type-heading-lg-size);
+  --text-heading-lg--line-height: var(--ds-type-heading-lg-line-height);
+  --text-heading-lg--font-weight: var(--ds-type-heading-lg-weight);
+  --text-heading-lg--letter-spacing: var(--ds-type-heading-lg-letter-spacing);
+  --text-heading-md: var(--ds-type-heading-md-size);
+  --text-heading-md--line-height: var(--ds-type-heading-md-line-height);
+  --text-heading-md--font-weight: var(--ds-type-heading-md-weight);
+  --text-heading-md--letter-spacing: var(--ds-type-heading-md-letter-spacing);
+  --text-heading-sm: var(--ds-type-heading-sm-size);
+  --text-heading-sm--line-height: var(--ds-type-heading-sm-line-height);
+  --text-heading-sm--font-weight: var(--ds-type-heading-sm-weight);
+  --text-heading-sm--letter-spacing: var(--ds-type-heading-sm-letter-spacing);
+  --text-body-lg: var(--ds-type-body-lg-size);
+  --text-body-lg--line-height: var(--ds-type-body-lg-line-height);
+  --text-body-lg--font-weight: var(--ds-type-body-lg-weight);
+  --text-body-lg--letter-spacing: var(--ds-type-body-lg-letter-spacing);
+  --text-body: var(--ds-type-body-size);
+  --text-body--line-height: var(--ds-type-body-line-height);
+  --text-body--font-weight: var(--ds-type-body-weight);
+  --text-body--letter-spacing: var(--ds-type-body-letter-spacing);
+  --text-body-sm: var(--ds-type-body-sm-size);
+  --text-body-sm--line-height: var(--ds-type-body-sm-line-height);
+  --text-body-sm--font-weight: var(--ds-type-body-sm-weight);
+  --text-body-sm--letter-spacing: var(--ds-type-body-sm-letter-spacing);
+  --text-label: var(--ds-type-label-size);
+  --text-label--line-height: var(--ds-type-label-line-height);
+  --text-label--font-weight: var(--ds-type-label-weight);
+  --text-label--letter-spacing: var(--ds-type-label-letter-spacing);
+  --text-overline: var(--ds-type-overline-size);
+  --text-overline--line-height: var(--ds-type-overline-line-height);
+  --text-overline--font-weight: var(--ds-type-overline-weight);
+  --text-overline--letter-spacing: var(--ds-type-overline-letter-spacing);
+  --text-caption: var(--ds-type-caption-size);
+  --text-caption--line-height: var(--ds-type-caption-line-height);
+  --text-caption--font-weight: var(--ds-type-caption-weight);
+  --text-caption--letter-spacing: var(--ds-type-caption-letter-spacing);
+  --text-code: var(--ds-type-code-size);
+  --text-code--line-height: var(--ds-type-code-line-height);
+  --text-code--font-weight: var(--ds-type-code-weight);
+  --text-code--letter-spacing: var(--ds-type-code-letter-spacing);
+
+  /* --- primitive scales re-skinned onto new ramps; existing gray-/purple-/blue- utilities keep working.
+         TRANSITIONAL: remove once components migrate to semantic roles (Step 2 audit fixes). --- */
+  --color-gray-50: var(--ds-palette-neutral-50);
+  --color-gray-100: var(--ds-palette-neutral-100);
+  --color-gray-150: var(--ds-palette-neutral-150);
+  --color-gray-200: var(--ds-palette-neutral-200);
+  --color-gray-250: var(--ds-palette-neutral-250);
+  --color-gray-300: var(--ds-palette-neutral-300);
+  --color-gray-350: var(--ds-palette-neutral-350);
+  --color-gray-400: var(--ds-palette-neutral-400);
+  --color-gray-450: var(--ds-palette-neutral-450);
+  --color-gray-500: var(--ds-palette-neutral-500);
+  --color-gray-550: var(--ds-palette-neutral-550);
+  --color-gray-600: var(--ds-palette-neutral-600);
+  --color-gray-650: var(--ds-palette-neutral-650);
+  --color-gray-700: var(--ds-palette-neutral-700);
+  --color-gray-750: var(--ds-palette-neutral-750);
+  --color-gray-800: var(--ds-palette-neutral-800);
+  --color-gray-850: var(--ds-palette-neutral-850);
+  --color-gray-900: var(--ds-palette-neutral-900);
+  --color-gray-950: var(--ds-palette-neutral-950);
+  --color-purple-50: var(--ds-palette-primary-50);
+  --color-purple-100: var(--ds-palette-primary-100);
+  --color-purple-150: var(--ds-palette-primary-150);
+  --color-purple-200: var(--ds-palette-primary-200);
+  --color-purple-250: var(--ds-palette-primary-250);
+  --color-purple-300: var(--ds-palette-primary-300);
+  --color-purple-350: var(--ds-palette-primary-350);
+  --color-purple-400: var(--ds-palette-primary-400);
+  --color-purple-450: var(--ds-palette-primary-450);
+  --color-purple-500: var(--ds-palette-primary-500);
+  --color-purple-550: var(--ds-palette-primary-550);
+  --color-purple-600: var(--ds-palette-primary-600);
+  --color-purple-650: var(--ds-palette-primary-650);
+  --color-purple-700: var(--ds-palette-primary-700);
+  --color-purple-750: var(--ds-palette-primary-750);
+  --color-purple-800: var(--ds-palette-primary-800);
+  --color-purple-850: var(--ds-palette-primary-850);
+  --color-purple-900: var(--ds-palette-primary-900);
+  --color-purple-950: var(--ds-palette-primary-950);
+  --color-blue-50: var(--ds-palette-blue-50);
+  --color-blue-100: var(--ds-palette-blue-100);
+  --color-blue-150: var(--ds-palette-blue-150);
+  --color-blue-200: var(--ds-palette-blue-200);
+  --color-blue-250: var(--ds-palette-blue-250);
+  --color-blue-300: var(--ds-palette-blue-300);
+  --color-blue-350: var(--ds-palette-blue-350);
+  --color-blue-400: var(--ds-palette-blue-400);
+  --color-blue-450: var(--ds-palette-blue-450);
+  --color-blue-500: var(--ds-palette-blue-500);
+  --color-blue-550: var(--ds-palette-blue-550);
+  --color-blue-600: var(--ds-palette-blue-600);
+  --color-blue-650: var(--ds-palette-blue-650);
+  --color-blue-700: var(--ds-palette-blue-700);
+  --color-blue-750: var(--ds-palette-blue-750);
+  --color-blue-800: var(--ds-palette-blue-800);
+  --color-blue-850: var(--ds-palette-blue-850);
+  --color-blue-900: var(--ds-palette-blue-900);
+  --color-blue-950: var(--ds-palette-blue-950);
 }
 
 @layer base {

@@ -1,0 +1,36 @@
+{
+  "radius": {
+    "none":        { "$value": "0px",    "$type": "dimension", "$description": "Sharp. Tags, dividers, data cells." },
+    "sm":          { "$value": "4px",    "$type": "dimension", "$description": "Buttons, inputs, tooltips." },
+    "md":          { "$value": "8px",    "$type": "dimension", "$description": "Cards, panels, popovers." },
+    "lg":          { "$value": "12px",   "$type": "dimension", "$description": "Modals, dialogs, sheets." },
+    "xl":          { "$value": "16px",   "$type": "dimension", "$description": "Reserved. No default consumer in v1." },
+    "full":        { "$value": "9999px", "$type": "dimension", "$description": "Pill / circular shapes." },
+
+    "data":        { "$value": "{radius.none}", "$type": "dimension", "$description": "Tables, code blocks, data cells." },
+    "tag":         { "$value": "{radius.none}", "$type": "dimension", "$description": "Inline tags, dividers." },
+    "interactive": { "$value": "{radius.sm}",   "$type": "dimension", "$description": "Buttons, inputs, tooltips." },
+    "container":   { "$value": "{radius.md}",   "$type": "dimension", "$description": "Cards, panels, popovers." },
+    "overlay":     { "$value": "{radius.lg}",   "$type": "dimension", "$description": "Modals, dialogs." },
+    "pill":        { "$value": "{radius.full}", "$type": "dimension", "$description": "Badges, avatars, status dots." }
+  },
+
+  "border-width": {
+    "default": { "$value": "1px", "$type": "dimension", "$description": "Default separator / outline weight." },
+    "focus":   { "$value": "2px", "$type": "dimension", "$description": "Focus ring weight." }
+  },
+
+  "shadow": {
+    "none": { "$value": "none", "$type": "shadow", "$description": "Default. Elevation via surface-lightness shift, not shadow." },
+    "sm":   {
+      "$value": "0 1px 2px 0 rgba(0, 0, 0, 0.40)",
+      "$type": "shadow",
+      "$description": "Subtle lift. Hover-interactive cards, tooltips."
+    },
+    "md":   {
+      "$value": "0 6px 16px -4px rgba(0, 0, 0, 0.50)",
+      "$type": "shadow",
+      "$description": "Clear elevation. Floating elements only: modals, popovers, dropdowns."
+    }
+  }
+}

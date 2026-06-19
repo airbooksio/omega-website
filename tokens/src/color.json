@@ -1,0 +1,581 @@
+{
+  "palette": {
+    "$description": "Primitive color ramps (19-stop OKLCH). Seeds: primary #7008e7, neutral #717172 (intentionally desaturated, no hue affinity), secondary/feedback from Sistema library.",
+    "primary": {
+      "50": {
+        "$type": "color",
+        "$value": "#faf9fd"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#eceaf7"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "#dbd7f3"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#ccc4f2"
+      },
+      "250": {
+        "$type": "color",
+        "$value": "#beb2f2"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#b1a0f3"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#a58ff5"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#9b7cf7"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#926af9"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#8a56fb"
+      },
+      "550": {
+        "$type": "color",
+        "$value": "#833ffc"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#7d1cfd"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#7208ea"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#6508d0"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#570bb5"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#490d99"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#3a0e7b"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#2a0c5b"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#150730"
+      }
+    },
+    "neutral": {
+      "50": {
+        "$type": "color",
+        "$value": "#fafafa"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#ebebeb"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "#dadada"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#c9c9ca"
+      },
+      "250": {
+        "$type": "color",
+        "$value": "#bababb"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#acacac"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#9e9e9e"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#919191"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#848485"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#787879"
+      },
+      "550": {
+        "$type": "color",
+        "$value": "#6d6d6e"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#626263"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#585858"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#4d4d4e"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#434343"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#383839"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#2d2d2e"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#212121"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#101011"
+      }
+    },
+    "blue": {
+      "50": {
+        "$type": "color",
+        "$value": "#f8fafc"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#e6ecf6"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "#cfdbf0"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#b8cbec"
+      },
+      "250": {
+        "$type": "color",
+        "$value": "#a1bbeb"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#8cacea"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#769eea"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#618feb"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#4d81eb"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#3972eb"
+      },
+      "550": {
+        "$type": "color",
+        "$value": "#2563eb"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#1154e8"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#0d4bd2"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#0a41bb"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#0839a4"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#07308b"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#062771"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#041c55"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#010c35"
+      }
+    },
+    "red": {
+      "50": {
+        "$type": "color",
+        "$value": "#fdf9f8"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#f7e8e6"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "#f2d3cf"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#f0beb7"
+      },
+      "250": {
+        "$type": "color",
+        "$value": "#f0a89f"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#f09387"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#f17b6f"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#f36156"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#f4403a"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#e82b2a"
+      },
+      "550": {
+        "$type": "color",
+        "$value": "#d42424"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#c02020"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#ad1b1b"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#991717"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#861414"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#711211"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#5c100e"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#430c0a"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#250605"
+      }
+    },
+    "amber": {
+      "50": {
+        "$type": "color",
+        "$value": "#fdf9f6"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#f8e9de"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "#f5d4bb"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#f4bf97"
+      },
+      "250": {
+        "$type": "color",
+        "$value": "#f5aa6e"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#f89336"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#ea841f"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#da7807"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#c86d05"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#b76303"
+      },
+      "550": {
+        "$type": "color",
+        "$value": "#a65a02"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#965002"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#874701"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#783f00"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#683600"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#592d00"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#482402"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#351a03"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#1c0c02"
+      }
+    },
+    "green": {
+      "50": {
+        "$type": "color",
+        "$value": "#f4fdf5"
+      },
+      "100": {
+        "$type": "color",
+        "$value": "#c8f7cf"
+      },
+      "150": {
+        "$type": "color",
+        "$value": "#7af296"
+      },
+      "200": {
+        "$type": "color",
+        "$value": "#63e283"
+      },
+      "250": {
+        "$type": "color",
+        "$value": "#4dd372"
+      },
+      "300": {
+        "$type": "color",
+        "$value": "#3ac363"
+      },
+      "350": {
+        "$type": "color",
+        "$value": "#29b557"
+      },
+      "400": {
+        "$type": "color",
+        "$value": "#1aa74d"
+      },
+      "450": {
+        "$type": "color",
+        "$value": "#149945"
+      },
+      "500": {
+        "$type": "color",
+        "$value": "#118b3e"
+      },
+      "550": {
+        "$type": "color",
+        "$value": "#0e7e38"
+      },
+      "600": {
+        "$type": "color",
+        "$value": "#0b7231"
+      },
+      "650": {
+        "$type": "color",
+        "$value": "#08662b"
+      },
+      "700": {
+        "$type": "color",
+        "$value": "#065a25"
+      },
+      "750": {
+        "$type": "color",
+        "$value": "#044e1f"
+      },
+      "800": {
+        "$type": "color",
+        "$value": "#06421b"
+      },
+      "850": {
+        "$type": "color",
+        "$value": "#073515"
+      },
+      "900": {
+        "$type": "color",
+        "$value": "#06270f"
+      },
+      "950": {
+        "$type": "color",
+        "$value": "#031407"
+      }
+    }
+  },
+  "color": {
+    "$description": "Semantic color roles. Dark-only. Every on-* pairing WCAG AA verified via Sistema contrast API. Architecture: contextual/layered surfaces + on-* pairings.",
+    "surface": {
+      "$type": "color",
+      "$value": "{palette.neutral.950}",
+      "$description": "Default page background (#101011)"
+    },
+    "surface-raised": {
+      "$type": "color",
+      "$value": "{palette.neutral.900}",
+      "$description": "Elevated surfaces: cards, sheets (#212121)"
+    },
+    "surface-overlay": {
+      "$type": "color",
+      "$value": "{palette.neutral.850}",
+      "$description": "Modal / dialog / popover surface (#2d2d2e)"
+    },
+    "on-surface": {
+      "$type": "color",
+      "$value": "{palette.neutral.50}",
+      "$description": "Primary text on surfaces. 18.2:1 on surface, 15.4:1 on raised"
+    },
+    "on-surface-muted": {
+      "$type": "color",
+      "$value": "{palette.neutral.350}",
+      "$description": "Secondary/muted text. 7.1:1 surface, 6.0:1 raised, 5.1:1 overlay"
+    },
+    "border": {
+      "$type": "color",
+      "$value": "{palette.neutral.800}",
+      "$description": "Default decorative border (#383839)"
+    },
+    "border-focus": {
+      "$type": "color",
+      "$value": "{palette.primary.400}",
+      "$description": "Focus ring. 6.0:1 (aa_ui) against surface"
+    },
+    "primary": {
+      "$type": "color",
+      "$value": "{palette.primary.650}",
+      "$description": "Primary brand action fill (#7208ea)"
+    },
+    "on-primary": {
+      "$type": "color",
+      "$value": "{palette.neutral.50}",
+      "$description": "Text/icon on primary. 6.9:1 against primary"
+    },
+    "primary-container": {
+      "$type": "color",
+      "$value": "{palette.primary.900}",
+      "$description": "Subtle primary-tinted container (#2a0c5b)"
+    },
+    "on-primary-container": {
+      "$type": "color",
+      "$value": "{palette.primary.200}",
+      "$description": "Text on primary-container. 9.8:1"
+    },
+    "secondary": {
+      "$type": "color",
+      "$value": "{palette.blue.600}",
+      "$description": "Secondary action \u2014 distinct blue hue (#1154e8)"
+    },
+    "on-secondary": {
+      "$type": "color",
+      "$value": "{palette.neutral.50}",
+      "$description": "Text on secondary. 5.8:1 against secondary"
+    },
+    "secondary-container": {
+      "$type": "color",
+      "$value": "{palette.blue.900}",
+      "$description": "Subtle secondary-tinted container (#041c55)"
+    },
+    "on-secondary-container": {
+      "$type": "color",
+      "$value": "{palette.blue.200}",
+      "$description": "Text on secondary-container. 9.8:1"
+    },
+    "error": {
+      "$type": "color",
+      "$value": "{palette.red.600}",
+      "$description": "Error/destructive fill (#c02020)"
+    },
+    "on-error": {
+      "$type": "color",
+      "$value": "{palette.neutral.50}",
+      "$description": "Text on error. 5.8:1"
+    },
+    "success": {
+      "$type": "color",
+      "$value": "{palette.green.600}",
+      "$description": "Success/confirmation fill (#0b7231)"
+    },
+    "on-success": {
+      "$type": "color",
+      "$value": "{palette.neutral.50}",
+      "$description": "Text on success. 5.8:1"
+    },
+    "warning": {
+      "$type": "color",
+      "$value": "{palette.amber.400}",
+      "$description": "Warning fill (#da7807)"
+    },
+    "on-warning": {
+      "$type": "color",
+      "$value": "{palette.neutral.950}",
+      "$description": "Dark text on warning. 6.0:1 (white fails at 3.0:1)"
+    }
+  }
+}
