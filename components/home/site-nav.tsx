@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "/", label: "Home" },
-  { href: "/core", label: "Omega Core" },
+  { href: "/core", label: "OMEGA Core" },
 ];
 
 export function SiteNav() {
@@ -54,7 +54,7 @@ export function SiteNav() {
           ))}
           <div className="flex items-center gap-2">
             <Button asChild size="sm" variant="outline">
-              <a href="https://core.omega-markets.com/">Log in</a>
+              <a href="http://app.omega-markets.com/">Log in</a>
             </Button>
             <Button asChild size="sm">
               <a href="mailto:will@airbooks.io">Contact</a>
@@ -88,7 +88,7 @@ export function SiteNav() {
               </Link>
             ))}
             <Button asChild size="sm" variant="outline" className="w-fit">
-              <a href="https://core.omega-markets.com/" onClick={() => setMobileOpen(false)}>
+              <a href="http://app.omega-markets.com/" onClick={() => setMobileOpen(false)}>
                 Log in
               </a>
             </Button>
