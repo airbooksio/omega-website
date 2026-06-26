@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import { ShieldCheck, Network, Landmark } from "lucide-react";
 import { SiteNav } from "@/components/home/site-nav";
 import { Hero } from "@/components/home/hero";
@@ -8,11 +7,7 @@ import { WhyAirbooks } from "@/components/home/why-airbooks";
 import { Cta } from "@/components/home/cta";
 import { Footer } from "@/components/footer";
 
-export const metadata: Metadata = {
-  title: "Airbooks — Access capital markets infrastructure, finally on your terms.",
-  description:
-    "Modern applications and an open protocol that give fixed-income teams cleaner, faster, more controllable access to the infrastructure capital markets already run on.",
-};
+// Title + description inherit the site defaults from app/layout.tsx.
 
 export default function HomePage() {
   return (

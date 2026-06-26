@@ -15,30 +15,50 @@ const _dmMono = DM_Mono({
 })
 
 export const metadata: Metadata = {
-  title: 'OMEGA — Open Markets Exchange Governance and Access',
+  metadataBase: new URL('https://omega-markets.com'),
+  title: {
+    default:
+      'Omega — Access capital markets infrastructure, finally on your terms.',
+    template: '%s — Omega',
+  },
   description:
-    'Neutral market infrastructure that standardizes cross-firm exchange APIs, centralizes governance, and gives each participant direct control over access to its data.',
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    'Modern applications and an open protocol that give fixed-income teams cleaner, faster, more controllable access to the infrastructure capital markets already run on.',
+  applicationName: 'Omega',
+  keywords: [
+    'capital markets infrastructure',
+    'fixed income',
+    'market data',
+    'open protocol',
+    'exchange API',
+    'OMEGA',
+    'Omega Markets',
+  ],
+  authors: [{ name: 'Omega' }],
+  creator: 'Omega',
+  publisher: 'Omega',
+  // Favicon + apple icon come from app/icon.svg and app/apple-icon.png.
+  // OG/Twitter images come from app/opengraph-image.png and app/twitter-image.png.
+  openGraph: {
+    type: 'website',
+    siteName: 'Omega',
+    locale: 'en_US',
+    url: 'https://omega-markets.com',
+  },
+  twitter: {
+    card: 'summary_large_image',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large' },
+  },
+  alternates: {
+    canonical: '/',
   },
 }
 
 export const viewport: Viewport = {
-  themeColor: '#101011',
+  themeColor: '#0f1016',
 }
 
 export default function RootLayout({

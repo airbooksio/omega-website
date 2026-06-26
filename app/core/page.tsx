@@ -8,9 +8,10 @@ import { CtaSection } from "@/components/cta-section";
 import { Footer } from "@/components/footer";
 
 export const metadata: Metadata = {
-  title: "OMEGA — Open Markets Exchange, Governance & Access",
+  title: { absolute: "Omega Core — Open Markets Exchange, Governance & Access" },
   description:
     "Neutral market infrastructure that standardizes cross-firm exchange APIs, centralizes governance, and gives each participant direct control over access to its data.",
+  alternates: { canonical: "/core" },
 };
 
 export default function CorePage() {
