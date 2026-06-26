@@ -11,7 +11,7 @@ export function AudienceStrip() {
   return (
     <section className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
-        <p className="mb-8 text-center text-xs font-medium tracking-widest text-on-secondary-container uppercase font-mono">
+        <p className="mb-8 text-center text-xs font-medium tracking-widest text-on-secondary-container uppercase">
           Built for
         </p>
         <div className="flex flex-wrap items-center justify-center gap-8 lg:gap-16">

@@ -52,9 +52,14 @@ export function SiteNav() {
               {link.label}
             </Link>
           ))}
-          <Button asChild size="sm">
-            <a href="mailto:will@airbooks.io">Contact</a>
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button asChild size="sm" variant="outline">
+              <a href="https://core.omega-markets.com/">Log in</a>
+            </Button>
+            <Button asChild size="sm">
+              <a href="mailto:will@airbooks.io">Contact</a>
+            </Button>
+          </div>
         </div>
 
         {/* Mobile toggle */}
@@ -82,6 +87,11 @@ export function SiteNav() {
                 {link.label}
               </Link>
             ))}
+            <Button asChild size="sm" variant="outline" className="w-fit">
+              <a href="https://core.omega-markets.com/" onClick={() => setMobileOpen(false)}>
+                Log in
+              </a>
+            </Button>
             <Button asChild size="sm" className="w-fit">
               <a
                 href="mailto:will@airbooks.io"

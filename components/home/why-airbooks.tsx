@@ -21,7 +21,7 @@ export function WhyAirbooks() {
   return (
     <section id="why-airbooks" className="border-t border-border py-24 lg:py-32">
       <div className="mx-auto max-w-6xl px-6">
-        <span className="mb-6 block font-mono text-overline uppercase text-primary">
+        <span className="mb-6 block text-overline uppercase text-primary">
           Why Airbooks
         </span>
         <h2 className="max-w-[16ch] text-heading-lg text-balance text-foreground">

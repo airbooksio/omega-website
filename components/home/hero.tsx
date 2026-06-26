@@ -3,14 +3,17 @@ import { ArrowRight } from "lucide-react";
 
 export function Hero() {
   return (
-    <section
-      className="relative flex min-h-[55vh] flex-col items-center justify-start px-6 pt-48 pb-16 text-center overflow-hidden"
-      style={{
-        backgroundImage: "url('/bg-eclipse.svg')",
-        backgroundPosition: "center -6rem",
-        backgroundRepeat: "no-repeat",
-      }}
-    >
+    <section className="relative flex min-h-[80vh] flex-col items-center justify-start overflow-hidden px-6 pt-48 pb-16 text-center">
+      {/* Maskless eclipse-circle (planet is a filled shape, not an SVG mask) so
+          Safari renders it correctly. Scale/position is a first pass to tune. */}
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/bg-eclipse-circle-nomask.svg"
+        alt=""
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 z-0 w-[1083px] max-w-none -translate-x-1/2 -translate-y-1/2 sm:w-[1368px] lg:w-[1520px]"
+      />
+
       <div className="relative z-10 mx-auto max-w-3xl">
         <h1 className="text-balance text-4xl font-semibold leading-tight tracking-tight text-foreground sm:text-5xl lg:text-6xl">
           Access capital markets infrastructure, finally on your terms.
@@ -23,8 +26,8 @@ export function Hero() {
         </p>
 
         <div className="mt-10 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
-          <Button asChild size="lg" className="rounded-full px-7 gap-2">
-            <a href="mailto:hello@airbooks.io">
+          <Button asChild size="lg" className="px-7 gap-2">
+            <a href="mailto:will@airbooks.io">
               Get in touch
               <ArrowRight className="size-4" />
             </a>
@@ -33,7 +36,7 @@ export function Hero() {
             asChild
             variant="outline"
             size="lg"
-            className="rounded-full px-7 border-border bg-transparent text-foreground hover:bg-muted hover:text-foreground"
+            className="px-7 border-[var(--ds-palette-neutral-850)] bg-transparent text-foreground hover:bg-muted hover:text-foreground"
           >
             <a href="#approach">See how it works</a>
           </Button>

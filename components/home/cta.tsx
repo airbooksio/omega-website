@@ -24,7 +24,7 @@ export function Cta() {
             size="lg"
             className="bg-foreground text-background hover:bg-on-primary-container"
           >
-            <a href="mailto:hello@airbooks.io">Get in touch</a>
+            <a href="mailto:will@airbooks.io">Get in touch</a>
           </Button>
         </div>
       </div>

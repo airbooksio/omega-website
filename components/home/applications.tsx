@@ -36,7 +36,7 @@ export function Applications() {
     <section id="applications" className="border-t border-border px-6 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 max-w-xl">
-          <span className="mb-3 block font-mono text-overline uppercase text-primary">
+          <span className="mb-3 block text-overline uppercase text-primary">
             Applications
           </span>
           <h2 className="text-heading-lg text-balance text-foreground">
@@ -69,7 +69,7 @@ export function Applications() {
               </p>
 
               <div className="mt-auto border-t border-border pt-6">
-                <span className="block font-mono text-overline uppercase text-on-primary-container">
+                <span className="block text-overline uppercase text-on-primary-container">
                   {card.tag}
                 </span>
                 <span className="mt-1.5 block text-body-sm text-muted-foreground">

@@ -18,19 +18,19 @@ export function Footer() {
         </div>
         <div className="flex items-center gap-6">
           <a
-            href="#"
+            href="https://core.omega-markets.com/privacy"
             className="text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             Privacy
           </a>
           <a
-            href="#"
+            href="https://core.omega-markets.com/terms"
             className="text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             Terms
           </a>
           <a
-            href="#"
+            href="mailto:will@airbooks.io"
             className="text-xs text-muted-foreground transition-colors hover:text-foreground"
           >
             Contact

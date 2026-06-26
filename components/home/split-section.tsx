@@ -32,7 +32,7 @@ export function SplitSection({
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[3fr_2fr] lg:gap-24">
           {/* Left anchor */}
           <div>
-            <span className="mb-6 block font-mono text-overline uppercase text-primary">
+            <span className="mb-6 block text-overline uppercase text-primary">
               {eyebrow}
             </span>
             <h2 className="mb-7 max-w-[16ch] text-heading-lg text-balance text-foreground">

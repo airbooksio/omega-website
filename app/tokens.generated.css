@@ -203,7 +203,7 @@
   --ds-type-label-weight: 500;
   --ds-type-label-line-height: 1.4;
   --ds-type-label-letter-spacing: 0.005em;
-  --ds-type-overline-family: 'DM Mono', 'DM Mono Fallback', monospace;
+  --ds-type-overline-family: 'DM Sans', 'DM Sans Fallback', sans-serif;
   --ds-type-overline-size: 12px;
   --ds-type-overline-weight: 500;
   --ds-type-overline-line-height: 1.4;

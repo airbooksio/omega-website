@@ -41,7 +41,7 @@ export function Pillars() {
     <section id="pillars" className="px-6 py-24 lg:py-32">
       <div className="mx-auto max-w-6xl">
         <div className="mb-16 max-w-xl">
-          <p className="mb-3 text-xs font-medium tracking-widest text-primary uppercase font-mono">
+          <p className="mb-3 text-xs font-medium tracking-widest text-primary uppercase">
             Three Pillars
           </p>
           <h2 className="text-balance text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
