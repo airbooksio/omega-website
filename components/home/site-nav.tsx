@@ -33,9 +33,9 @@ export function SiteNav() {
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-8 px-6 py-5">
         <Link href="/" className="flex items-center" aria-label="Airbooks home">
           <Image
-            src="/omega-logo-new.svg"
-            alt="Airbooks"
-            width={119}
+            src="/logos/OMEGA-Logo_Horizontal_Dark.svg"
+            alt="OMEGA"
+            width={137}
             height={34}
             priority
           />
