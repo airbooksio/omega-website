@@ -40,11 +40,12 @@ export function Hero() {
             <ArrowRight className="size-4" />
           </Button>
           <Button
+            asChild
             variant="outline"
             size="lg"
             className="px-7 border-[var(--ds-palette-neutral-850)] bg-transparent text-foreground hover:bg-muted hover:text-foreground"
           >
-            Review the Technical Overview
+            <a href="https://core.omega-markets.com">Review the Technical Overview</a>
           </Button>
         </div>
       </div>
